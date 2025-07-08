@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Win 11\\Desktop\\TourApp\\psw-tourapp\\backend\\TourApp.Domain\\TourApp.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Domain\\TourApp.Domain.csproj",
       "projectName": "TourApp.Domain",
-      "projectPath": "C:\\Users\\Win 11\\Desktop\\TourApp\\psw-tourapp\\backend\\TourApp.Domain\\TourApp.Domain.csproj",
+      "projectPath": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Domain\\TourApp.Domain.csproj",
       "packagesPath": "C:\\Users\\Win 11\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Win 11\\Desktop\\TourApp\\psw-tourapp\\backend\\TourApp.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

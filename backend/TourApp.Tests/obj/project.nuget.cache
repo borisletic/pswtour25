@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jqa7LF8nLjM=",
+  "dgSpecHash": "qx+xYwx/6kU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Win 11\\Desktop\\TourApp\\psw-tourapp\\backend\\TourApp.Tests\\TourApp.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Tests\\TourApp.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Win 11\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Win 11\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
