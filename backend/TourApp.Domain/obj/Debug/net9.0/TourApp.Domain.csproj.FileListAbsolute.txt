@@ -1,0 +1,11 @@
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\bin\Debug\net9.0\TourApp.Domain.deps.json
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\bin\Debug\net9.0\TourApp.Domain.dll
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\bin\Debug\net9.0\TourApp.Domain.pdb
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\obj\Debug\net9.0\TourApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\obj\Debug\net9.0\TourApp.Domain.AssemblyInfoInputs.cache
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\obj\Debug\net9.0\TourApp.Domain.AssemblyInfo.cs
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\obj\Debug\net9.0\TourApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\obj\Debug\net9.0\TourApp.Domain.dll
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\obj\Debug\net9.0\refint\TourApp.Domain.dll
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\obj\Debug\net9.0\TourApp.Domain.pdb
+C:\Users\Win 11\Desktop\TourApp\backend\TourApp.Domain\obj\Debug\net9.0\ref\TourApp.Domain.dll
