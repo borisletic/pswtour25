@@ -1,0 +1,10 @@
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\bin\Debug\net9.0\.msCoverageSourceRootsMapping_TourApp.Tests
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\bin\Debug\net9.0\CoverletSourceRootsMapping_TourApp.Tests
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\obj\Debug\net9.0\TourApp.Tests.csproj.AssemblyReference.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\obj\Debug\net9.0\TourApp.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\obj\Debug\net9.0\TourApp.Tests.AssemblyInfoInputs.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\obj\Debug\net9.0\TourApp.Tests.AssemblyInfo.cs
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\obj\Debug\net9.0\TourApp.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\obj\Debug\net9.0\TourApp.Tests.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Tests\obj\Debug\net9.0\TourApp.Tests.sourcelink.json

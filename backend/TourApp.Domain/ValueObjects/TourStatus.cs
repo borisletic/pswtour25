@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TourApp.Domain.ValueObjects
 {
-    internal class TourStatus
+    public enum TourStatus
     {
+        Draft = 1,
+        Published = 2,
+        Cancelled = 3
     }
 }

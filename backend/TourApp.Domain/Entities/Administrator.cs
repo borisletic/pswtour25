@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace TourApp.Domain.Entities
 {
-    internal class Administrator
+    public class Administrator : User
     {
+        protected Administrator() { }
+
+        public Administrator(string username, string email, string passwordHash,
+                           string firstName, string lastName)
+            : base(username, email, passwordHash, firstName, lastName)
+        {
+        }
     }
 }

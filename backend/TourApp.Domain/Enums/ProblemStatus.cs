@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace TourApp.Domain.Enums
 {
-    internal class ProblemStatus
+    public enum ProblemStatus
     {
+        Pending = 1,
+        Resolved = 2,
+        UnderReview = 3,
+        Rejected = 4
     }
 }

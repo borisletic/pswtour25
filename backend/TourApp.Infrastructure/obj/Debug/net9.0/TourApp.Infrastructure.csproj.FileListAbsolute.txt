@@ -1,0 +1,8 @@
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Infrastructure\obj\Debug\net9.0\TourApp.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Infrastructure\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Infrastructure\obj\Debug\net9.0\TourApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Infrastructure\obj\Debug\net9.0\TourApp.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Infrastructure\obj\Debug\net9.0\TourApp.Infrastructure.AssemblyInfo.cs
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Infrastructure\obj\Debug\net9.0\TourApp.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Infrastructure\obj\Debug\net9.0\TourApp.Infrastructure.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Infrastructure\obj\Debug\net9.0\TourApp.Infrastructure.sourcelink.json

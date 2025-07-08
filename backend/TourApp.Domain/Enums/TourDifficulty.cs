@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace TourApp.Domain.Enums
 {
-    internal class TourDifficulty
+    public enum TourDifficulty
     {
+        Easy = 1,
+        Medium = 2,
+        Hard = 3,
+        Expert = 4
     }
 }

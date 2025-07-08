@@ -59,3 +59,11 @@ C:\Users\Win 11\Desktop\TourApp\backend\TourApp.API\bin\Debug\net9.0\tr-TR\Hangf
 C:\Users\Win 11\Desktop\TourApp\backend\TourApp.API\bin\Debug\net9.0\zh-TW\Hangfire.Core.resources.dll
 C:\Users\Win 11\Desktop\TourApp\backend\TourApp.API\bin\Debug\net9.0\zh\Hangfire.Core.resources.dll
 C:\Users\Win 11\Desktop\TourApp\backend\TourApp.API\obj\Debug\net9.0\TourApp.API.sourcelink.json
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.API\obj\Debug\net9.0\TourApp.API.csproj.AssemblyReference.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.API\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.API\obj\Debug\net9.0\TourApp.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.API\obj\Debug\net9.0\TourApp.API.AssemblyInfoInputs.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.API\obj\Debug\net9.0\TourApp.API.AssemblyInfo.cs
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.API\obj\Debug\net9.0\TourApp.API.csproj.CoreCompileInputs.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.API\obj\Debug\net9.0\TourApp.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Win 11\Desktop\pswtour\backend\TourApp.API\obj\Debug\net9.0\TourApp.API.sourcelink.json
