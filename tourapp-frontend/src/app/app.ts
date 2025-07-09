@@ -28,7 +28,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.scss']
 })
 export class AppComponent {
-  title = 'Tourist Tours';
+  title = 'Tour App';
   
   constructor(
     public authService: AuthService,
