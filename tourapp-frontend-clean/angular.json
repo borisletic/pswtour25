@@ -62,7 +62,6 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-<<<<<<< HEAD:tourapp-frontend-clean/angular.json
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
@@ -70,31 +69,12 @@
             },
             "development": {
               "buildTarget": "tourapp-frontend-clean:build:development"
-=======
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "buildTarget": "tourapp-frontend:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "tourapp-frontend:build:production"
-            },
-            "development": {
-              "buildTarget": "tourapp-frontend:build:development"
->>>>>>> 1c5fab38dab7794081d65a7d765d28438eb8044d:tourapp-frontend/angular.json
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-<<<<<<< HEAD:tourapp-frontend-clean/angular.json
           "builder": "@angular/build:extract-i18n"
-=======
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "tourapp-frontend:build"
-          }
->>>>>>> 1c5fab38dab7794081d65a7d765d28438eb8044d:tourapp-frontend/angular.json
         },
         "test": {
           "builder": "@angular/build:karma",
