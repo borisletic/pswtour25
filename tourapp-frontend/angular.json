@@ -68,14 +68,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tourapp-frontend:build"
+            "buildTarget": "tourapp-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tourapp-frontend:build:production"
+              "buildTarget": "tourapp-frontend:build:production"
             },
             "development": {
-              "browserTarget": "tourapp-frontend:build:development"
+              "buildTarget": "tourapp-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tourapp-frontend:build"
+            "buildTarget": "tourapp-frontend:build"
           }
         },
         "test": {
