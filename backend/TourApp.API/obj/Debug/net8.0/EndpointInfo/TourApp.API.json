@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Tourist Tours API",
-    "description": "API for Tourist Tours Management System",
+    "title": "Tour App API",
+    "description": "API for Tour App Management System",
     "version": "v1"
   },
   "paths": {

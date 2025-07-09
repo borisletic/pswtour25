@@ -146,9 +146,9 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Tourist Tours API",
+        Title = "Tour App API",
         Version = "v1",
-        Description = "API for Tourist Tours Management System"
+        Description = "API for Tour App Management System"
     });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

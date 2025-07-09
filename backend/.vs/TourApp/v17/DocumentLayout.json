@@ -50,8 +50,7 @@
               "RelativeToolTip": "TourApp.Infrastructure\\Migrations\\TourAppDbContextModelSnapshot.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T22:46:21.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-09T22:46:21.178Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "TourApp.Infrastructure\\Migrations\\20250709223522_InitialCreate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T22:46:10.088Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-09T22:46:10.088Z"
             },
             {
               "$type": "Document",
@@ -76,8 +74,7 @@
               "RelativeToolTip": "TourApp.API\\Extensions\\DatabaseExtensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T22:37:20.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-09T22:37:20.315Z"
             },
             {
               "$type": "Document",
@@ -87,7 +84,7 @@
               "RelativeDocumentMoniker": "TourApp.API\\Program.cs",
               "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Program.cs",
               "RelativeToolTip": "TourApp.API\\Program.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAqwL0AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAqwJYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-09T22:19:21.376Z",
               "EditorCaption": ""
@@ -102,8 +99,7 @@
               "RelativeToolTip": "TourApp.API\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-09T22:16:29.518Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-09T22:16:29.518Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "TourApp.API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-09T22:15:33.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-09T22:15:33.17Z"
             },
             {
               "$type": "Document",
@@ -128,8 +123,7 @@
               "RelativeToolTip": "TourApp.Infrastructure\\Persistence\\Context\\TourAppDbContext.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T21:59:45.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-09T21:59:45.052Z"
             }
           ]
         }
