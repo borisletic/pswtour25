@@ -1,0 +1,59 @@
+<div class="cart-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Shopping Cart</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="cartItems.length === 0" class="empty-cart">
+        <p>Your cart is empty</p>
+        <button mat-raised-button color="primary" routerLink="/tours">
+          Browse Tours
+        </button>
+      </div>
+
+      <div *ngIf="cartItems.length > 0">
+        <div class="cart-item" *ngFor="let item of cartItems">
+          <div class="item-details">
+            <h3>{{item.tour.name}}</h3>
+            <p>{{item.tour.scheduledDate | date:'medium'}}</p>
+            <p class="item-price">{{item.tour.price}} {{item.tour.currency}}</p>
+          </div>
+          <button mat-icon-button color="warn" (click)="removeFromCart(item.tour.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <span>{{totalPrice}} EUR</span>
+          </div>
+          <div class="summary-row" *ngIf="bonusPointsAvailable > 0">
+            <span>Available Bonus Points:</span>
+            <span>{{bonusPointsAvailable}}</span>
+          </div>
+          <div class="summary-row" *ngIf="bonusPointsAvailable > 0">
+            <mat-form-field appearance="outline">
+              <mat-label>Use Bonus Points</mat-label>
+              <input matInput type="number" [(ngModel)]="bonusPointsToUse" 
+                     (ngModelChange)="onBonusPointsChange()"
+                     [max]="bonusPointsAvailable" min="0">
+            </mat-form-field>
+          </div>
+          <div class="summary-row total">
+            <span>Total:</span>
+            <span>{{finalPrice}} EUR</span>
+          </div>
+        </div>
+
+        <div class="checkout-actions">
+          <button mat-button routerLink="/tours">Continue Shopping</button>
+          <button mat-raised-button color="primary" (click)="checkout()" [disabled]="loading">
+            <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+            <span *ngIf="!loading">Checkout</span>
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

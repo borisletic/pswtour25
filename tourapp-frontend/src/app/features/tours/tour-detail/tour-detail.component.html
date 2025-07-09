@@ -1,0 +1,86 @@
+<div class="tour-detail-container" *ngIf="!loading && tour">
+  <mat-card class="tour-header">
+    <mat-card-header>
+      <mat-card-title>{{tour.name}}</mat-card-title>
+      <mat-card-subtitle>
+        <span>by {{tour.guide.firstName}} {{tour.guide.lastName}}</span>
+        <mat-icon *ngIf="tour.guide.isRewarded" class="reward-icon" matTooltip="Rewarded Guide">star</mat-icon>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{tour.description}}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="tour-info">
+    <mat-card class="info-section">
+      <mat-card-header>
+        <mat-card-title>Tour Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ul class="detail-list">
+          <li>
+            <mat-icon>category</mat-icon>
+            <span>Category: {{tour.category}}</span>
+          </li>
+          <li>
+            <mat-icon>terrain</mat-icon>
+            <span>Difficulty: {{tour.difficulty}}</span>
+          </li>
+          <li>
+            <mat-icon>event</mat-icon>
+            <span>Date: {{tour.scheduledDate | date:'full'}}</span>
+          </li>
+          <li>
+            <mat-icon>euro</mat-icon>
+            <span>Price: {{tour.price}} {{tour.currency}}</span>
+          </li>
+          <li *ngIf="tour.ratingsCount > 0">
+            <mat-icon>star</mat-icon>
+            <span>Rating: {{tour.averageRating | number:'1.1-1'}} ({{tour.ratingsCount}} reviews)</span>
+          </li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="info-section">
+      <mat-card-header>
+        <mat-card-title>Key Points ({{tour.keyPoints.length}})</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let keyPoint of tour.keyPoints; let i = index">
+            <mat-icon matListItemIcon>location_on</mat-icon>
+            <div matListItemTitle>{{i + 1}}. {{keyPoint.name}}</div>
+            <div matListItemLine>{{keyPoint.description}}</div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Tour Route</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div id="tour-map"></div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="actions">
+    <button mat-button routerLink="/tours">
+      <mat-icon>arrow_back</mat-icon>
+      Back to Tours
+    </button>
+    <button mat-raised-button color="accent" (click)="addToCart()" 
+            *ngIf="isTourist() && tour.status === 'Published'">
+      <mat-icon>shopping_cart</mat-icon>
+      Add to Cart
+    </button>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>

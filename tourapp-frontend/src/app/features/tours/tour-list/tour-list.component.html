@@ -1,0 +1,96 @@
+<div class="tour-list-container">
+  <mat-card class="filter-card">
+    <mat-card-header>
+      <mat-card-title>Filter Tours</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="filters">
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select [(ngModel)]="filter.category" name="category">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let interest of interests" [value]="interest.value">
+              {{interest.label}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field>
+          <mat-label>Difficulty</mat-label>
+          <mat-select [(ngModel)]="filter.difficulty" name="difficulty">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let diff of difficulties" [value]="diff.value">
+              {{diff.label}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <mat-checkbox [(ngModel)]="filter.rewardedGuidesOnly" name="rewardedOnly">
+          Rewarded Guides Only
+        </mat-checkbox>
+        
+        <div class="filter-actions">
+          <button mat-raised-button color="primary" (click)="applyFilters()">
+            Apply Filters
+          </button>
+          <button mat-button (click)="clearFilters()">
+            Clear
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  
+  <div class="tours-grid" *ngIf="!loading">
+    <mat-card *ngFor="let tour of filteredTours" class="tour-card">
+      <mat-card-header>
+        <mat-card-title>{{tour.name}}</mat-card-title>
+        <mat-card-subtitle>
+          <span class="guide-name">by {{tour.guide.firstName}} {{tour.guide.lastName}}</span>
+          <mat-icon *ngIf="tour.guide.isRewarded" class="reward-icon" 
+                    matTooltip="Rewarded Guide">star</mat-icon>
+        </mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <p class="description">{{tour.description}}</p>
+        
+        <div class="tour-details">
+          <div class="detail-item">
+            <mat-icon>category</mat-icon>
+            <span>{{tour.category}}</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>terrain</mat-icon>
+            <span>{{tour.difficulty}}</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>event</mat-icon>
+            <span>{{tour.scheduledDate | date:'medium'}}</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>euro</mat-icon>
+            <span>{{tour.price}} {{tour.currency}}</span>
+          </div>
+        </div>
+        
+        <div class="rating" *ngIf="tour.ratingsCount > 0">
+          <mat-icon>star</mat-icon>
+          <span>{{tour.averageRating | number:'1.1-1'}} ({{tour.ratingsCount}} reviews)</span>
+        </div>
+      </mat-card-content>
+      
+      <mat-card-actions>
+        <button mat-button color="primary" [routerLink]="['/tours', tour.id]">
+          View Details
+        </button>
+        <button mat-raised-button color="accent" (click)="addToCart(tour)" 
+                *ngIf="isTourist() && tour.status === 'Published'">
+          Add to Cart
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
+  <mat-spinner *ngIf="loading" class="loading-spinner"></mat-spinner>
+</div>

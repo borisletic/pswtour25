@@ -1,0 +1,113 @@
+<div class="create-tour-container">
+  <form [formGroup]="tourForm" (ngSubmit)="onSubmit()">
+    <mat-card class="tour-form-card">
+      <mat-card-header>
+        <mat-card-title>Create New Tour</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Tour Name</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-error *ngIf="tourForm.get('name')?.hasError('required')">
+              Name is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Price (EUR)</mat-label>
+            <input matInput type="number" formControlName="price" required>
+            <mat-error *ngIf="tourForm.get('price')?.hasError('required')">
+              Price is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width-field">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="4" required></textarea>
+            <mat-error *ngIf="tourForm.get('description')?.hasError('required')">
+              Description is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category" required>
+              <mat-option *ngFor="let interest of interests" [value]="interest.value">
+                {{interest.label}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="tourForm.get('category')?.hasError('required')">
+              Category is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Difficulty</mat-label>
+            <mat-select formControlName="difficulty" required>
+              <mat-option *ngFor="let diff of difficulties" [value]="diff.value">
+                {{diff.label}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="tourForm.get('difficulty')?.hasError('required')">
+              Difficulty is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width-field">
+            <mat-label>Scheduled Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="scheduledDate" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="tourForm.get('scheduledDate')?.hasError('required')">
+              Date is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Key Points</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="map-instructions">
+          Click on the map to add key points. You can drag markers to adjust positions.
+        </p>
+        <div id="create-tour-map"></div>
+        
+        <mat-list class="key-points-list" *ngIf="keyPoints.length > 0">
+          <mat-list-item *ngFor="let keyPoint of keyPoints.controls; let i = index" class="key-point-item">
+            <mat-icon matListItemIcon>location_on</mat-icon>
+            <div class="key-point-info" [formGroup]="keyPoint">
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" required>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description" required>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Image URL (optional)</mat-label>
+                <input matInput formControlName="imageUrl">
+              </mat-form-field>
+            </div>
+            <button mat-icon-button color="warn" (click)="removeKeyPoint(i)" type="button">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="form-actions">
+      <button mat-button type="button" routerLink="/guide/tours">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loading || tourForm.invalid">
+        <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+        <span *ngIf="!loading">Create Tour</span>
+      </button>
+    </div>
+  </form>
+</div>
