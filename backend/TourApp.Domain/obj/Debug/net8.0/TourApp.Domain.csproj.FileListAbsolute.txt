@@ -110,7 +110,6 @@ C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Domain\obj\Debug\net8.0\staticwe
 C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Domain\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Domain\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Domain\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Domain\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Domain\obj\Debug\net8.0\TourApp..10A930BB.Up2Date
 C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Domain\obj\Debug\net8.0\TourApp.Domain.dll
 C:\Users\Win 11\Desktop\pswtour\backend\TourApp.Domain\obj\Debug\net8.0\refint\TourApp.Domain.dll

@@ -1,18 +1,19 @@
 // API/Program.cs
+using FluentValidation.AspNetCore;
 using Hangfire;
+using Hangfire.MySql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using TourApp.API.Extensions;
 using TourApp.Application.Handlers;
 using TourApp.Application.Services;
 using TourApp.Domain.Repositories;
 using TourApp.Infrastructure.Migrations;
 using TourApp.Infrastructure.Persistence.Context;
 using TourApp.Infrastructure.Persistence.Repositories;
-using FluentValidation.AspNetCore;
-using Hangfire.MySql;
 using TouristTours.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,13 +26,36 @@ builder.Services.AddControllers()
         fv.ImplicitlyValidateChildProperties = true;
     });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins(
+                    "http://localhost:4200",
+                    "https://localhost:4200"
+                )
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials();
+        });
+});
+
 // Configure DbContext
 builder.Services.AddDbContext<TourAppDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 30)),
-        b => b.MigrationsAssembly("TouristTours.Infrastructure")
-    ));
+        new MySqlServerVersion(new Version(8, 0, 42)), // Use your MySQL version
+        mySqlOptions => mySqlOptions
+            .MigrationsAssembly("TourApp.Infrastructure")
+            .EnableRetryOnFailure(
+                maxRetryCount: 5,
+                maxRetryDelay: TimeSpan.FromSeconds(30),
+                errorNumbersToAdd: null)
+    )
+    .EnableSensitiveDataLogging(builder.Environment.IsDevelopment())
+    .EnableDetailedErrors(builder.Environment.IsDevelopment())
+);
 
 // Configure MediatR
 //builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(RegisterTouristHandler).Assembly));
@@ -166,6 +190,7 @@ app.UseHttpsRedirection();
 app.UseCors("AllowAngularApp");
 
 app.UseAuthentication();
+app.UseCors("AllowAngularApp");
 app.UseAuthorization();
 
 app.UseHangfireDashboard("/hangfire", new DashboardOptions
@@ -200,5 +225,6 @@ using (var scope = app.Services.CreateScope())
     var dbContext = scope.ServiceProvider.GetRequiredService<TourAppDbContext>();
     dbContext.Database.Migrate();
 }
-await app.InitializeDatabase();
+//await app.InitializeDatabase();
+await app.InitializeDatabaseAsync();
 app.Run();
