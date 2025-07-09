@@ -1,13 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "cli": {
-    "packageManager": "npm",
-    "analytics": "157653f2-936d-4f8e-bd98-f18d68741c44"
-  },
   "newProjectRoot": "projects",
   "projects": {
-    "tourapp-frontend-clean": {
+    "tourapp-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -65,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "tourapp-frontend-clean:build:production"
+              "buildTarget": "tourapp-frontend:build:production"
             },
             "development": {
-              "buildTarget": "tourapp-frontend-clean:build:development"
+              "buildTarget": "tourapp-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,5 +94,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

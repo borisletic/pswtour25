@@ -1,5 +1,5 @@
 {
-  "name": "tourapp-frontend-clean",
+  "name": "tourapp-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -20,12 +20,12 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cdk": "^20.0.5",
+    "@angular/cdk": "~20.0.5",
     "@angular/common": "^20.0.0",
     "@angular/compiler": "^20.0.0",
     "@angular/core": "^20.0.0",
     "@angular/forms": "^20.0.0",
-    "@angular/material": "^20.0.5",
+    "@angular/material": "~20.0.5",
     "@angular/platform-browser": "^20.0.0",
     "@angular/router": "^20.0.0",
     "@types/leaflet": "^1.9.20",
@@ -35,8 +35,8 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular/build": "^20.0.5",
-    "@angular/cli": "^20.0.5",
+    "@angular/build": "^20.0.6",
+    "@angular/cli": "^20.0.6",
     "@angular/compiler-cli": "^20.0.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.7.0",

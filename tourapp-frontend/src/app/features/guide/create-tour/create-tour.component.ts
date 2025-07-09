@@ -36,7 +36,7 @@ import * as L from 'leaflet';
     MatSnackBarModule
   ],
   templateUrl: './create-tour.component.html',
-  styleUrl: './create-tour.component.scss'
+  styleUrls: ['./create-tour.component.scss']
 })
 export class CreateTourComponent implements OnInit, AfterViewInit {
   tourForm!: FormGroup;

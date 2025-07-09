@@ -35,7 +35,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSnackBarModule
   ],
   templateUrl: './tour-list.component.html',
-  styleUrl: './tour-list.component.scss'
+  styleUrls: ['./tour-list.component.scss']
 })
 export class TourListComponent implements OnInit, OnDestroy {
   tours: Tour[] = [];

@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   imports: [
     CommonModule,
     RouterOutlet,
-    //RouterLink,
+    RouterLink,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
@@ -25,7 +25,7 @@ import { Router } from '@angular/router';
     MatBadgeModule
   ],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
 export class AppComponent {
   title = 'Tourist Tours';

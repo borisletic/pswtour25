@@ -34,7 +34,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSnackBarModule
   ],
   templateUrl: './my-tours.component.html',
-  styleUrl: './my-tours.component.scss'
+  styleUrls: ['./my-tours.component.scss']
 })
 export class MyToursComponent implements OnInit {
   tours: Tour[] = [];
