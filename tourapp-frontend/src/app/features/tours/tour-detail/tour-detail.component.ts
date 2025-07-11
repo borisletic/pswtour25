@@ -12,7 +12,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import * as L from 'leaflet';
+
+// Fix Leaflet icon issue
+const iconRetinaUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png';
+const iconUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png';
+const shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
+const iconDefault = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+L.Marker.prototype.options.icon = iconDefault;
 
 @Component({
   selector: 'app-tour-detail',
@@ -25,7 +42,8 @@ import * as L from 'leaflet';
     MatIconModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule
   ],
   templateUrl: './tour-detail.component.html',
   styleUrls: ['./tour-detail.component.scss']
@@ -72,7 +90,8 @@ export class TourDetailComponent implements OnInit, OnDestroy, AfterViewInit {
         next: (tour) => {
           this.tour = tour;
           this.loading = false;
-          setTimeout(() => this.initializeMap(), 100);
+          // Give Angular time to render the DOM before initializing map
+          setTimeout(() => this.initializeMap(), 200);
         },
         error: (error) => {
           console.error('Error loading tour:', error);
@@ -83,7 +102,19 @@ export class TourDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   
   initializeMap(): void {
-    if (!this.tour || !this.tour.keyPoints.length) return;
+    if (!this.tour || !this.tour.keyPoints.length) {
+      console.log('No tour or key points available for map');
+      return;
+    }
+    
+    console.log('Initializing map with', this.tour.keyPoints.length, 'key points');
+    
+    // Check if map container exists
+    const mapContainer = document.getElementById('tour-map');
+    if (!mapContainer) {
+      console.error('Map container #tour-map not found');
+      return;
+    }
     
     // Initialize map centered on first key point
     const firstPoint = this.tour.keyPoints[0];
@@ -101,7 +132,7 @@ export class TourDetailComponent implements OnInit, OnDestroy, AfterViewInit {
       const marker = L.marker([keyPoint.latitude, keyPoint.longitude])
         .addTo(this.map!)
         .bindPopup(`
-          <div>
+          <div class="map-popup">
             <h4>${index + 1}. ${keyPoint.name}</h4>
             <p>${keyPoint.description}</p>
           </div>
@@ -113,12 +144,21 @@ export class TourDetailComponent implements OnInit, OnDestroy, AfterViewInit {
     
     // Draw route between key points
     if (latLngs.length > 1) {
-      L.polyline(latLngs, { color: 'blue', weight: 3 }).addTo(this.map);
+      L.polyline(latLngs, { 
+        color: '#1976d2', 
+        weight: 4, 
+        opacity: 0.7,
+        dashArray: '10, 5'
+      }).addTo(this.map);
     }
     
-    // Fit map to show all markers
-    const bounds = L.latLngBounds(latLngs);
-    this.map.fitBounds(bounds, { padding: [50, 50] });
+    // Fit map to show all markers with padding
+    if (latLngs.length > 0) {
+      const bounds = L.latLngBounds(latLngs);
+      this.map.fitBounds(bounds, { padding: [20, 20] });
+    }
+    
+    console.log('Map initialized successfully');
   }
   
   addToCart(): void {
