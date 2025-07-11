@@ -28,26 +28,34 @@ export class TourService {
   getTours(filter?: TourFilter): Observable<Tour[]> {
     let params = new HttpParams();
     
-    // WORKAROUND: Backend requires Status parameter, so we always send it
-    // If no status is specified, we send 'Published' as default since
-    // the backend's GetPublishedToursAsync() already filters for published tours
-    params = params.set('status', filter?.status || 'Draft');
+    console.log('getTours called with filter:', filter);
     
-    // Add other parameters only if they have values
+    // Only add parameters if they have values - don't send default status
     if (filter) {
       if (filter.category !== undefined && filter.category !== null) {
         params = params.set('category', filter.category.toString());
+        console.log('Added category parameter:', filter.category.toString());
       }
       if (filter.difficulty !== undefined && filter.difficulty !== null) {
         params = params.set('difficulty', filter.difficulty.toString());
+        console.log('Added difficulty parameter:', filter.difficulty.toString());
       }
       if (filter.guideId) {
         params = params.set('guideId', filter.guideId);
+        console.log('Added guideId parameter:', filter.guideId);
+      }
+      if (filter.status) {
+        params = params.set('status', filter.status);
+        console.log('Added status parameter:', filter.status);
       }
       if (filter.rewardedGuidesOnly === true) {
         params = params.set('rewardedGuidesOnly', 'true');
+        console.log('Added rewardedGuidesOnly parameter: true');
       }
     }
+
+    console.log('Final params:', params.toString());
+    console.log('Final URL:', `${this.apiUrl}?${params.toString()}`);
 
     return this.http.get<Tour[]>(this.apiUrl, { params });
   }

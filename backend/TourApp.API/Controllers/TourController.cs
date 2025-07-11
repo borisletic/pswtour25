@@ -23,8 +23,24 @@ namespace TourApp.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetTours([FromQuery] GetToursQuery query)
         {
-            var tours = await _mediator.Send(query);
-            return Ok(tours);
+            Console.WriteLine($"GetTours called with:");
+            Console.WriteLine($"  Category: {query.Category}");
+            Console.WriteLine($"  Difficulty: {query.Difficulty}");
+            Console.WriteLine($"  Status: {query.Status}");
+            Console.WriteLine($"  GuideId: {query.GuideId}");
+            Console.WriteLine($"  RewardedGuidesOnly: {query.RewardedGuidesOnly}");
+
+            try
+            {
+                var tours = await _mediator.Send(query);
+                return Ok(tours);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetTours: {ex.Message}");
+                Console.WriteLine($"StackTrace: {ex.StackTrace}");
+                return BadRequest(new { error = ex.Message });
+            }
         }
 
         [HttpGet("{id}")]
@@ -123,5 +139,7 @@ namespace TourApp.API.Controllers
             var userIdClaim = User.FindFirst("UserId")?.Value;
             return Guid.Parse(userIdClaim);
         }
+
+
     }
 }

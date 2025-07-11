@@ -17,5 +17,6 @@ namespace TourApp.Domain.Repositories
         Task<IEnumerable<Tour>> GetByCategoryAsync(Interest category);
         Task<IEnumerable<Tour>> GetUpcomingToursAsync();
         Task<int> GetSoldCountAsync(Guid tourId, DateTime startDate, DateTime endDate);
+        
     }
 }

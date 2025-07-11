@@ -13,7 +13,7 @@ namespace TourApp.Application.Queries
     {
         public Interest? Category { get; set; }
         public TourDifficulty? Difficulty { get; set; }
-        public string Status { get; set; }
+        public string? Status { get; set; }
         public Guid? GuideId { get; set; }
         public bool? RewardedGuidesOnly { get; set; }
     }
