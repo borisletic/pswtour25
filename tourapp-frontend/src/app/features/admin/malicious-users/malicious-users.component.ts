@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from '../../../core/services/admin.service';
 import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
+import { UserDetailsDialogComponent } from './user-details-dialog.component';
 
 interface MaliciousUser {
   id: string;
@@ -127,5 +128,14 @@ export class MaliciousUsersComponent implements OnInit {
 
   getBlockedUsers(): number {
     return this.maliciousUsers.filter(user => user.isBlocked).length;
+  }
+
+  // Updated viewDetails method to use the dialog component
+  viewDetails(user: MaliciousUser): void {
+    this.dialog.open(UserDetailsDialogComponent, {
+      data: user,
+      width: '600px',
+      maxWidth: '90vw'
+    });
   }
 }
