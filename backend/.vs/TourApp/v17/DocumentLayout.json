@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "TourApp.Infrastructure\\Persistence\\Context\\TourAppDbContext.cs",
               "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Infrastructure\\Persistence\\Context\\TourAppDbContext.cs",
               "RelativeToolTip": "TourApp.Infrastructure\\Persistence\\Context\\TourAppDbContext.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAIwCQAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAwwCQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-11T23:01:27.52Z",
               "EditorCaption": ""
@@ -79,8 +79,7 @@
               "RelativeToolTip": "TourApp.Infrastructure\\Persistence\\Configurations\\ProblemConfiguration.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAiwDwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T22:42:34.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T22:42:34.435Z"
             },
             {
               "$type": "Document",
@@ -92,8 +91,7 @@
               "RelativeToolTip": "TourApp.Domain\\Events\\TourCancelledEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T22:35:16.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T22:35:16.622Z"
             },
             {
               "$type": "Document",
@@ -105,8 +103,7 @@
               "RelativeToolTip": "TourApp.Domain\\Events\\ProblemStatusChangedEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T22:35:03.246Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T22:35:03.246Z"
             },
             {
               "$type": "Document",
@@ -118,8 +115,7 @@
               "RelativeToolTip": "TourApp.Domain\\Events\\ProblemCreatedEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T22:34:32.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T22:34:32.099Z"
             },
             {
               "$type": "Document",
@@ -131,8 +127,7 @@
               "RelativeToolTip": "TourApp.Domain\\Events\\ProblemEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T22:33:36.749Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T22:33:36.749Z"
             },
             {
               "$type": "Document",
@@ -156,8 +151,7 @@
               "RelativeToolTip": "TourApp.Infrastructure\\Persistence\\Repositories\\PurchaseRepository.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAqwDsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T22:12:14.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T22:12:14.979Z"
             },
             {
               "$type": "Document",

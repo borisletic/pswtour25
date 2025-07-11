@@ -1,0 +1,162 @@
+<div class="malicious-users-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Malicious Users Management</mat-card-title>
+      <mat-card-subtitle>Users who have violated system policies</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div *ngIf="loading" class="loading-container">
+        <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+        <p>Loading malicious users...</p>
+      </div>
+
+      <div *ngIf="!loading && maliciousUsers.length === 0" class="empty-state">
+        <mat-icon>sentiment_very_satisfied</mat-icon>
+        <h3>No Malicious Users Found</h3>
+        <p>Great! No users are currently marked as malicious.</p>
+      </div>
+
+      <div *ngIf="!loading && maliciousUsers.length > 0" class="table-container">
+        <table mat-table [dataSource]="maliciousUsers" class="malicious-users-table">
+          
+          <!-- Username Column -->
+          <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef>Username</th>
+            <td mat-cell *matCellDef="let user">
+              <strong>{{user.username}}</strong>
+            </td>
+          </ng-container>
+
+          <!-- Email Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let user">{{user.email}}</td>
+          </ng-container>
+
+          <!-- Type Column -->
+          <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef>Type</th>
+            <td mat-cell *matCellDef="let user">
+              <mat-chip [color]="user.type === 'Tourist' ? 'primary' : 'accent'">
+                <mat-icon>{{user.type === 'Tourist' ? 'person' : 'tour'}}</mat-icon>
+                {{user.type}}
+              </mat-chip>
+            </td>
+          </ng-container>
+
+          <!-- Reason Column -->
+          <ng-container matColumnDef="reason">
+            <th mat-header-cell *matHeaderCellDef>Reason</th>
+            <td mat-cell *matCellDef="let user">{{user.reason}}</td>
+          </ng-container>
+
+          <!-- Count Column -->
+          <ng-container matColumnDef="count">
+            <th mat-header-cell *matHeaderCellDef>Count</th>
+            <td mat-cell *matCellDef="let user">
+              <mat-chip [color]="user.count >= 15 ? 'warn' : 'primary'">
+                {{user.count}}
+              </mat-chip>
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let user">
+              <mat-chip [color]="user.isBlocked ? 'warn' : 'accent'">
+                <mat-icon>{{user.isBlocked ? 'block' : 'check_circle'}}</mat-icon>
+                {{user.isBlocked ? 'Blocked' : 'Active'}}
+              </mat-chip>
+            </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let user">
+              <div class="action-buttons">
+                <button mat-icon-button 
+                        color="warn" 
+                        (click)="blockUser(user)" 
+                        *ngIf="!user.isBlocked"
+                        matTooltip="Block User">
+                  <mat-icon>block</mat-icon>
+                </button>
+                
+                <button mat-icon-button 
+                        color="primary" 
+                        (click)="unblockUser(user)" 
+                        *ngIf="user.isBlocked"
+                        matTooltip="Unblock User">
+                  <mat-icon>check_circle</mat-icon>
+                </button>
+
+                <button mat-icon-button 
+                        color="accent" 
+                        matTooltip="View Details">
+                  <mat-icon>info</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+      <!-- Summary Statistics -->
+      <div *ngIf="!loading && maliciousUsers.length > 0" class="summary-stats">
+        <mat-card class="stat-card">
+          <mat-card-content>
+            <div class="stat">
+              <mat-icon color="warn">people</mat-icon>
+              <div class="stat-info">
+                <span class="stat-number">{{maliciousUsers.length}}</span>
+                <span class="stat-label">Total Malicious Users</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card">
+          <mat-card-content>
+            <div class="stat">
+              <mat-icon color="primary">person</mat-icon>
+              <div class="stat-info">
+                <span class="stat-number">{{getMaliciousTourists()}}</span>
+                <span class="stat-label">Malicious Tourists</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card">
+          <mat-card-content>
+            <div class="stat">
+              <mat-icon color="accent">tour</mat-icon>
+              <div class="stat-info">
+                <span class="stat-number">{{getMaliciousGuides()}}</span>
+                <span class="stat-label">Malicious Guides</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card">
+          <mat-card-content>
+            <div class="stat">
+              <mat-icon color="warn">block</mat-icon>
+              <div class="stat-info">
+                <span class="stat-number">{{getBlockedUsers()}}</span>
+                <span class="stat-label">Blocked Users</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
