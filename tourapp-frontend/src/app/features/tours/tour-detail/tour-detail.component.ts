@@ -181,4 +181,21 @@ export class TourDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   isTourist(): boolean {
     return this.authService.hasRole('Tourist');
   }
+
+  // Add these properties
+imageLoading: { [key: number]: boolean } = {};
+
+// Add these methods
+onKeyPointImageError(event: any): void {
+  event.target.style.display = 'none';
+  event.target.closest('.key-point-image').style.display = 'none';
+}
+
+onKeyPointImageLoad(event: any): void {
+  const index = Array.from(event.target.closest('.key-points-grid').children)
+    .indexOf(event.target.closest('.key-point-card'));
+  this.imageLoading[index] = false;
+  event.target.classList.add('loaded');
+}
+
 }

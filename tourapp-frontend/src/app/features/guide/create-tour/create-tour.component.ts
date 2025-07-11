@@ -62,6 +62,9 @@ export class CreateTourComponent implements OnInit, AfterViewInit {
   markers: L.Marker[] = [];
   currentTourId: string | null = null;
   
+  // Image handling properties
+  imageStates: { [key: number]: { loading: boolean; error: boolean } } = {};
+  
   interests = Object.keys(Interest)
     .filter(k => isNaN(Number(k)))
     .map(key => ({ value: Interest[key as keyof typeof Interest], label: key }));
@@ -162,10 +165,69 @@ export class CreateTourComponent implements OnInit, AfterViewInit {
       this.markers.splice(index, 1);
     }
     
+    // Remove image state for this key point
+    delete this.imageStates[index];
+    
+    // Update indices for remaining image states
+    const newImageStates: { [key: number]: { loading: boolean; error: boolean } } = {};
+    Object.keys(this.imageStates).forEach(key => {
+      const oldIndex = parseInt(key);
+      if (oldIndex > index) {
+        newImageStates[oldIndex - 1] = this.imageStates[oldIndex];
+      } else if (oldIndex < index) {
+        newImageStates[oldIndex] = this.imageStates[oldIndex];
+      }
+    });
+    this.imageStates = newImageStates;
+    
     // Update order for remaining key points
     this.keyPoints.controls.forEach((control, i) => {
       control.patchValue({ order: i + 1 });
     });
+  }
+
+  // Image handling methods
+  validateImageUrl(index: number): void {
+    const keyPoint = this.keyPoints.at(index);
+    const imageUrl = keyPoint?.get('imageUrl')?.value;
+    
+    if (imageUrl && imageUrl.trim()) {
+      this.imageStates[index] = { loading: true, error: false };
+    } else {
+      delete this.imageStates[index];
+    }
+  }
+
+  onImageUrlChange(index: number): void {
+    const keyPoint = this.keyPoints.at(index);
+    const imageUrl = keyPoint?.get('imageUrl')?.value;
+    
+    if (imageUrl && imageUrl.trim()) {
+      this.imageStates[index] = { loading: true, error: false };
+    } else {
+      delete this.imageStates[index];
+    }
+  }
+
+  onImageLoad(index: number): void {
+    if (this.imageStates[index]) {
+      this.imageStates[index] = { loading: false, error: false };
+    }
+  }
+
+  onImageError(index: number): void {
+    if (this.imageStates[index]) {
+      this.imageStates[index] = { loading: false, error: true };
+    }
+  }
+
+  isValidImageUrl(url: string): boolean {
+    try {
+      new URL(url);
+      return /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(url);
+    } catch {
+      return false;
+    }
   }
 
   private validateKeyPoints(keyPoints: any[]): boolean {

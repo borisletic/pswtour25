@@ -59,9 +59,56 @@
     </mat-card>
   </div>
 
+  <!-- Tour Highlights Section with Images -->
+  <mat-card *ngIf="tour?.keyPoints && tour.keyPoints.length > 0" class="highlights-section">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>photo_library</mat-icon>
+        Tour Highlights
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="key-points-grid">
+        <div 
+          *ngFor="let keyPoint of tour.keyPoints; let i = index" 
+          class="key-point-card"
+          [class.no-image]="!keyPoint.imageUrl || keyPoint.imageUrl.trim() === ''"
+        >
+          <!-- Image Section -->
+          <div class="key-point-image" *ngIf="keyPoint.imageUrl && keyPoint.imageUrl.trim()">
+            <img 
+              [src]="keyPoint.imageUrl" 
+              [alt]="keyPoint.name"
+              (error)="onKeyPointImageError($event)"
+              (load)="onKeyPointImageLoad($event)"
+              class="key-point-img"
+            />
+            <div class="image-overlay" *ngIf="imageLoading[i]">
+              <mat-spinner diameter="30"></mat-spinner>
+            </div>
+            <div class="image-number">{{i + 1}}</div>
+          </div>
+          
+          <!-- Content Section -->
+          <div class="key-point-content">
+            <h3 class="key-point-title">
+              <mat-icon>location_on</mat-icon>
+              <span class="key-point-number" *ngIf="!keyPoint.imageUrl || keyPoint.imageUrl.trim() === ''">{{i + 1}}.</span>
+              {{ keyPoint.name }}
+            </h3>
+            <p class="key-point-description">{{ keyPoint.description }}</p>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Tour Route</mat-card-title>
+      <mat-card-title>
+        <mat-icon>map</mat-icon>
+        Tour Route
+      </mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div id="tour-map"></div>

@@ -116,8 +116,30 @@
               
               <mat-form-field appearance="outline" class="key-point-field">
                 <mat-label>Image URL (optional)</mat-label>
-                <input matInput formControlName="imageUrl">
+                <input matInput formControlName="imageUrl" (blur)="validateImageUrl(i)" (input)="onImageUrlChange(i)">
               </mat-form-field>
+
+              <!-- Image Preview Section -->
+              <div class="image-preview-container" *ngIf="keyPoint.get('imageUrl')?.value && keyPoint.get('imageUrl')?.value.trim()">
+                <div class="image-preview">
+                  <img 
+                    [src]="keyPoint.get('imageUrl')?.value" 
+                    [alt]="keyPoint.get('name')?.value || 'Key point image'"
+                    (load)="onImageLoad(i)"
+                    (error)="onImageError(i)"
+                    class="preview-image"
+                    [class.loading]="imageStates[i].loading"
+                    [class.error]="imageStates[i].error"
+                  />
+                  <div class="image-overlay" *ngIf="imageStates[i]?.loading">
+                    <mat-spinner diameter="30"></mat-spinner>
+                  </div>
+                  <div class="image-overlay error-overlay" *ngIf="imageStates[i]?.error">
+                    <mat-icon>broken_image</mat-icon>
+                    <span>Failed to load image</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
