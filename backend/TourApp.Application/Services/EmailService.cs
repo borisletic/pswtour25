@@ -58,16 +58,16 @@ namespace TourApp.Application.Services
 
         public async Task SendRegistrationConfirmationAsync(string email, string firstName)
         {
-            var subject = "Welcome to Tourist Tours!";
+            var subject = "Welcome to Tour App!";
             var body = $@"
                 <html>
                 <body>
                     <h2>Welcome {firstName}!</h2>
-                    <p>Thank you for registering with Tourist Tours.</p>
+                    <p>Thank you for registering with Tour App.</p>
                     <p>You can now browse and purchase amazing tours from our expert guides.</p>
-                    <p>Start exploring at <a href='https://touristtours.com'>touristtours.com</a></p>
+                    <p>Start exploring at <a href='https://tourapp.com'>tourapp.com</a></p>
                     <br>
-                    <p>Best regards,<br>Tourist Tours Team</p>
+                    <p>Best regards,<br>Tour App Team</p>
                 </body>
                 </html>";
 
@@ -77,7 +77,7 @@ namespace TourApp.Application.Services
         public async Task SendPurchaseConfirmationAsync(string email, PurchaseEmailData data)
         {
             var toursList = string.Join("</li><li>", data.TourNames);
-            var subject = "Purchase Confirmation - Tourist Tours";
+            var subject = "Purchase Confirmation - Tour App";
             var body = $@"
                 <html>
                 <body>
@@ -90,7 +90,7 @@ namespace TourApp.Application.Services
                     <p><strong>Total Amount: {data.TotalAmount:F2} {data.Currency}</strong></p>
                     <p>You will receive a reminder 48 hours before each tour.</p>
                     <br>
-                    <p>Best regards,<br>Tourist Tours Team</p>
+                    <p>Best regards,<br>Tour App Team</p>
                 </body>
                 </html>";
 
@@ -115,7 +115,7 @@ namespace TourApp.Application.Services
                     <p>Please arrive 15 minutes before the scheduled time.</p>
                     <p>We look forward to seeing you!</p>
                     <br>
-                    <p>Best regards,<br>Tourist Tours Team</p>
+                    <p>Best regards,<br>Tour App Team</p>
                 </body>
                 </html>";
 
@@ -124,7 +124,7 @@ namespace TourApp.Application.Services
 
         public async Task SendAccountBlockedNotificationAsync(string email, string reason)
         {
-            var subject = "Account Status - Tourist Tours";
+            var subject = "Account Status - Tour App";
             var body = $@"
                 <html>
                 <body>
@@ -133,7 +133,7 @@ namespace TourApp.Application.Services
                     <p><strong>Reason:</strong> {reason}</p>
                     <p>If you believe this is an error, please contact support at support@touristtours.com</p>
                     <br>
-                    <p>Best regards,<br>Tourist Tours Team</p>
+                    <p>Best regards,<br>Tour App Team</p>
                 </body>
                 </html>";
 
@@ -153,7 +153,7 @@ namespace TourApp.Application.Services
                     <p>These bonus points can be used for your next purchase.</p>
                     <p>We apologize for any inconvenience.</p>
                     <br>
-                    <p>Best regards,<br>Tourist Tours Team</p>
+                    <p>Best regards,<br>Tour App Team</p>
                 </body>
                 </html>";
 
@@ -194,7 +194,7 @@ namespace TourApp.Application.Services
                     
                     <br>
                     <p>Keep up the great work!</p>
-                    <p>Best regards,<br>Tourist Tours Team</p>
+                    <p>Best regards,<br>Tour App Team</p>
                 </body>
                 </html>";
 

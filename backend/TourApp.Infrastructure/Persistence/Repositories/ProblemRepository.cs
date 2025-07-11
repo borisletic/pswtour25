@@ -20,7 +20,7 @@ namespace TourApp.Infrastructure.Persistence.Repositories
         public async Task<Problem> GetWithEventsAsync(Guid id)
         {
             return await _context.Problems
-                .Include(p => p.Events)
+                // Remove .Include(p => p.Events) - Events is not a navigation property
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 
@@ -28,7 +28,7 @@ namespace TourApp.Infrastructure.Persistence.Repositories
         {
             return await _context.Problems
                 .Where(p => p.TouristId == touristId)
-                .Include(p => p.Events)
+                // Remove .Include(p => p.Events) - Events is not a navigation property
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
         }
@@ -37,7 +37,7 @@ namespace TourApp.Infrastructure.Persistence.Repositories
         {
             return await _context.Problems
                 .Where(p => p.TourId == tourId)
-                .Include(p => p.Events)
+                // Remove .Include(p => p.Events) - Events is not a navigation property
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
         }
@@ -46,7 +46,7 @@ namespace TourApp.Infrastructure.Persistence.Repositories
         {
             return await _context.Problems
                 .Where(p => p.Status == status)
-                .Include(p => p.Events)
+                // Remove .Include(p => p.Events) - Events is not a navigation property
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
         }

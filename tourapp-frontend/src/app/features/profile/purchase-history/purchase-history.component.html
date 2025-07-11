@@ -28,9 +28,11 @@
           <td mat-cell *matCellDef="let purchase">
             <div class="tours-list">
               <div *ngFor="let tour of purchase.tours" class="tour-item">
-                <strong>{{ tour.name }}</strong>
-                <br>
-                <small>{{ tour.scheduledDate | date:'short' }}</small>
+                <div class="tour-info">
+                  <strong>{{ tour.name }}</strong>
+                  <br>
+                  <small>{{ tour.scheduledDate | date:'short' }}</small>
+                </div>
                 <mat-chip 
                   [color]="tour.hasRated ? 'primary' : 'default'"
                   class="rating-chip">
@@ -85,43 +87,3 @@
     </mat-card-content>
   </mat-card>
 </div>
-
-<style>
-.purchase-history-container {
-  padding: 20px;
-}
-
-.loading-container {
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 40px;
-  color: #666;
-}
-
-.empty-state mat-icon {
-  font-size: 48px;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 16px;
-}
-
-.tours-list {
-  max-width: 300px;
-}
-
-.tour-item {
-  margin-bottom: 8px;
-  padding: 8px;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-}
-
-.rating-chip {
-  margin-top: 4px;
-}
-</style>

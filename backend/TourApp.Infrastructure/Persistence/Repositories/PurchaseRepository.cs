@@ -23,8 +23,7 @@ namespace TourApp.Infrastructure.Persistence.Repositories
                 .Where(p => p.TouristId == touristId)
                 .Include(p => p.Tours)
                     .ThenInclude(t => t.KeyPoints)
-                .Include(p => p.Tours)
-                    .ThenInclude(t => t.GuideId)
+                // Remove .ThenInclude(t => t.GuideId) - GuideId is not a navigation property
                 .OrderByDescending(p => p.PurchasedAt)
                 .ToListAsync();
         }

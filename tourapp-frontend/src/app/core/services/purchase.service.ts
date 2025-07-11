@@ -24,7 +24,7 @@ interface PurchaseResponse {
   providedIn: 'root'
 })
 export class PurchaseService {
-  private apiUrl = `${environment.apiUrl}/purchase`;
+  private apiUrl = `${environment.apiUrl}/Purchase`;
   private cartSubject = new BehaviorSubject<CartItem[]>([]);
   public cart$ = this.cartSubject.asObservable();
 
