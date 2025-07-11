@@ -31,7 +31,7 @@ export class TourService {
     // WORKAROUND: Backend requires Status parameter, so we always send it
     // If no status is specified, we send 'Published' as default since
     // the backend's GetPublishedToursAsync() already filters for published tours
-    params = params.set('status', filter?.status || 'Published');
+    params = params.set('status', filter?.status || 'Draft');
     
     // Add other parameters only if they have values
     if (filter) {
