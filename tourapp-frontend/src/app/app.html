@@ -6,7 +6,9 @@
   <span class="toolbar-spacer"></span>
   
   <button mat-icon-button routerLink="/cart" *ngIf="userRole === 'Tourist'">
-    <mat-icon matBadge="0" matBadgeColor="accent">shopping_cart</mat-icon>
+    <mat-icon [matBadge]="cartItemCount" [matBadgeHidden]="cartItemCount === 0" matBadgeColor="accent">
+      shopping_cart
+    </mat-icon>
   </button>
   
   <button mat-button routerLink="/auth/login" *ngIf="!isAuthenticated">
@@ -32,6 +34,9 @@
         <a mat-list-item routerLink="/cart" routerLinkActive="active">
           <mat-icon matListItemIcon>shopping_cart</mat-icon>
           <span matListItemTitle>My Cart</span>
+          <span matListItemMeta *ngIf="cartItemCount > 0" class="cart-badge">
+            {{ cartItemCount }}
+          </span>
         </a>
         <a mat-list-item routerLink="/profile/purchases" routerLinkActive="active">
           <mat-icon matListItemIcon>history</mat-icon>
@@ -73,3 +78,45 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<style>
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+.sidenav-content {
+  padding: 20px;
+}
+
+.cart-badge {
+  background-color: #ff4081;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+</style>

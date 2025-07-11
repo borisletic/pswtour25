@@ -1,10 +1,24 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialogContent } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SharedModule } from "../../../shared/shared.module";
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-rate-tour-dialog',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   template: `
     <h2 mat-dialog-title>Rate Tour: {{ data.tour.name }}</h2>
     <mat-dialog-content>
@@ -19,7 +33,8 @@ import { SharedModule } from "../../../shared/shared.module";
         
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Comment {{ isCommentRequired() ? '(Required)' : '(Optional)' }}</mat-label>
-          <textarea matInput formControlName="comment" rows="4"></textarea>
+          <textarea matInput formControlName="comment" rows="4" 
+                    placeholder="Share your experience..."></textarea>
           <mat-error *ngIf="ratingForm.get('comment')?.hasError('required')">
             Comment is required for ratings 1 and 2
           </mat-error>
@@ -44,6 +59,7 @@ import { SharedModule } from "../../../shared/shared.module";
       cursor: pointer;
       color: #ccc;
       transition: color 0.2s;
+      margin: 0 4px;
     }
     .rating-stars mat-icon.filled {
       color: #ffd740;
@@ -53,9 +69,16 @@ import { SharedModule } from "../../../shared/shared.module";
     }
     .full-width {
       width: 100%;
+      margin-top: 16px;
     }
-  `],
-  imports: [MatDialogContent, SharedModule]
+    mat-dialog-content {
+      min-width: 400px;
+      padding: 24px !important;
+    }
+    mat-dialog-actions {
+      padding: 16px 24px !important;
+    }
+  `]
 })
 export class RateTourDialogComponent {
   ratingForm: FormGroup;
@@ -71,6 +94,7 @@ export class RateTourDialogComponent {
       comment: ['']
     });
 
+    // Update comment validation when score changes
     this.ratingForm.get('score')?.valueChanges.subscribe(score => {
       this.updateCommentValidation(score);
     });

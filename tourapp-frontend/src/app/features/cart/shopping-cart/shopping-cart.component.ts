@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -19,7 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   imports: [
     CommonModule,
     FormsModule,
-    //RouterLink,
+    RouterLink,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
@@ -95,12 +96,14 @@ export class ShoppingCartComponent implements OnInit {
     this.loading = true;
     
     try {
-      const result = await this.purchaseService.purchase(this.bonusPointsToUse).toPromise();
+      const result = await firstValueFrom(this.purchaseService.purchase(this.bonusPointsToUse));
       this.purchaseService.clearCart();
       this.snackBar.open('Purchase successful!', 'Close', { duration: 3000 });
       this.router.navigate(['/profile/purchases']);
-    } catch (error) {
-      this.snackBar.open('Purchase failed. Please try again.', 'Close', { duration: 3000 });
+    } catch (error: any) {
+      console.error('Purchase error:', error);
+      const errorMessage = error.error?.errors?.[0] || 'Purchase failed. Please try again.';
+      this.snackBar.open(errorMessage, 'Close', { duration: 3000 });
     } finally {
       this.loading = false;
     }

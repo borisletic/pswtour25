@@ -62,8 +62,7 @@
               "RelativeToolTip": "TourApp.Domain\\Repositories\\IKeyPointRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T17:27:58.121Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T17:27:58.121Z"
             },
             {
               "$type": "Document",
@@ -75,8 +74,7 @@
               "RelativeToolTip": "TourApp.Infrastructure\\Persistence\\Repositories\\KeyPointRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T17:26:59.573Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T17:26:59.573Z"
             },
             {
               "$type": "Document",
@@ -88,8 +86,7 @@
               "RelativeToolTip": "TourApp.API\\Program.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAqwEsAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T16:48:44.055Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T16:48:44.055Z"
             },
             {
               "$type": "Document",
@@ -113,8 +110,7 @@
               "RelativeToolTip": "TourApp.API\\Controllers\\TourController.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAUwHQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T16:32:49.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T16:32:49.544Z"
             },
             {
               "$type": "Document",
@@ -160,7 +156,7 @@
               "RelativeDocumentMoniker": "TourApp.Application\\Handlers\\AddKeyPointHandler.cs",
               "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Handlers\\AddKeyPointHandler.cs",
               "RelativeToolTip": "TourApp.Application\\Handlers\\AddKeyPointHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-11T16:14:58.722Z",
               "EditorCaption": ""

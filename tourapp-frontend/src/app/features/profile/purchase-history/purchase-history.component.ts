@@ -1,12 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { PurchaseService } from '../../../core/services/purchase.service';
 import { TourService } from '../../../core/services/tour.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RateTourDialogComponent } from '../rate-tour-dialog/rate-tour-dialog.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   selector: 'app-purchase-history',
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatSnackBarModule
+  ],
   templateUrl: './purchase-history.component.html',
   styleUrls: ['./purchase-history.component.scss']
 })
@@ -72,6 +91,7 @@ export class PurchaseHistoryComponent implements OnInit {
 
   reportProblem(tour: any): void {
     // Navigate to problem reporting page
-    // Implementation depends on routing structure
+    // This would open a dialog or navigate to a problem reporting form
+    this.snackBar.open('Problem reporting feature coming soon', 'Close', { duration: 3000 });
   }
 }
