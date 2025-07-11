@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Tour, TourFilter, CreateTourRequest, KeyPoint } from '../../models/tour.model';
@@ -12,19 +12,34 @@ export class TourService {
 
   constructor(private http: HttpClient) {}
 
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('auth_token');
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    
+    return headers;
+  }
+
   getTours(filter?: TourFilter): Observable<Tour[]> {
     let params = new HttpParams();
     
+    // WORKAROUND: Backend requires Status parameter, so we always send it
+    // If no status is specified, we send 'Published' as default since
+    // the backend's GetPublishedToursAsync() already filters for published tours
+    params = params.set('status', filter?.status || 'Published');
+    
+    // Add other parameters only if they have values
     if (filter) {
-      // Send numeric enum values instead of string representations
       if (filter.category !== undefined && filter.category !== null) {
         params = params.set('category', filter.category.toString());
       }
       if (filter.difficulty !== undefined && filter.difficulty !== null) {
         params = params.set('difficulty', filter.difficulty.toString());
-      }
-      if (filter.status) {
-        params = params.set('status', filter.status);
       }
       if (filter.guideId) {
         params = params.set('guideId', filter.guideId);
@@ -42,22 +57,41 @@ export class TourService {
   }
 
   createTour(tour: CreateTourRequest): Observable<{ tourId: string }> {
-    return this.http.post<{ tourId: string }>(this.apiUrl, tour);
+    return this.http.post<{ tourId: string }>(
+      this.apiUrl, 
+      tour, 
+      { headers: this.getAuthHeaders() }
+    );
   }
 
   addKeyPoint(tourId: string, keyPoint: Omit<KeyPoint, 'id'>): Observable<{ keyPointId: string }> {
-    return this.http.post<{ keyPointId: string }>(`${this.apiUrl}/${tourId}/keypoints`, keyPoint);
+    return this.http.post<{ keyPointId: string }>(
+      `${this.apiUrl}/${tourId}/keypoints`, 
+      keyPoint, 
+      { headers: this.getAuthHeaders() }
+    );
   }
 
   publishTour(tourId: string): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${tourId}/publish`, {});
+    return this.http.put<void>(
+      `${this.apiUrl}/${tourId}/publish`, 
+      {}, 
+      { headers: this.getAuthHeaders() }
+    );
   }
 
   cancelTour(tourId: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${tourId}/cancel`);
+    return this.http.delete<void>(
+      `${this.apiUrl}/${tourId}/cancel`, 
+      { headers: this.getAuthHeaders() }
+    );
   }
 
   rateTour(tourId: string, score: number, comment?: string): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/${tourId}/rate`, { score, comment });
+    return this.http.post<void>(
+      `${this.apiUrl}/${tourId}/rate`, 
+      { score, comment }, 
+      { headers: this.getAuthHeaders() }
+    );
   }
 }

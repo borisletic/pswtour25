@@ -78,7 +78,10 @@ export class TourListComponent implements OnInit, OnDestroy {
   
   loadTours(): void {
     this.loading = true;
-    this.tourService.getTours(this.filter)
+    // Don't send empty filter object
+    const hasFilters = this.filter && Object.keys(this.filter).length > 0;
+    
+    this.tourService.getTours(hasFilters ? this.filter : undefined)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (tours) => {
