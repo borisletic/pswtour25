@@ -1,4 +1,4 @@
-// API/Program.cs
+﻿// API/Program.cs
 using FluentValidation.AspNetCore;
 using Hangfire;
 using Hangfire.MySql;
@@ -22,7 +22,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers()
     .AddFluentValidation(fv =>
     {
-        fv.RegisterValidatorsFromAssemblyContaining<Program>();
+        fv.RegisterValidatorsFromAssemblyContaining<TourApp.Application.Validators.AddKeyPointValidator>();  // ✅ CORRECT
         fv.ImplicitlyValidateChildProperties = true;
     });
 
@@ -73,6 +73,7 @@ builder.Services.AddScoped<IProblemRepository, ProblemRepository>();
 builder.Services.AddScoped<IPurchaseRepository, PurchaseRepository>();
 builder.Services.AddScoped<IRatingRepository, RatingRepository>();
 builder.Services.AddScoped<IMonthlyReportRepository, MonthlyReportRepository>();
+builder.Services.AddScoped<IKeyPointRepository, KeyPointRepository>();
 
 // Configure Services
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();

@@ -77,15 +77,43 @@ namespace TourApp.API.Controllers
         [Authorize(Roles = "Guide")]
         public async Task<IActionResult> AddKeyPoint(Guid tourId, [FromBody] AddKeyPointCommand command)
         {
-            command.TourId = tourId;
-            var result = await _mediator.Send(command);
-
-            if (!result.Success)
+            try
             {
-                return BadRequest(new { errors = result.Errors });
-            }
+                // Log the incoming request
+                Console.WriteLine($"AddKeyPoint called with tourId: {tourId}");
+                Console.WriteLine($"Command data: Name={command?.Name}, Description={command?.Description}, Lat={command?.Latitude}, Lng={command?.Longitude}, Order={command?.Order}");
 
-            return Ok(new { keyPointId = result.KeyPointId });
+                // Validate model state
+                if (!ModelState.IsValid)
+                {
+                    Console.WriteLine("ModelState is invalid:");
+                    foreach (var error in ModelState)
+                    {
+                        Console.WriteLine($"  {error.Key}: {string.Join(", ", error.Value.Errors.Select(e => e.ErrorMessage))}");
+                    }
+                    return BadRequest(ModelState);
+                }
+
+                command.TourId = tourId;
+
+                Console.WriteLine("Sending command to MediatR...");
+                var result = await _mediator.Send(command);
+
+                Console.WriteLine($"MediatR result: Success={result.Success}, Errors={string.Join(", ", result.Errors)}");
+
+                if (!result.Success)
+                {
+                    return BadRequest(new { errors = result.Errors });
+                }
+
+                return Ok(new { keyPointId = result.KeyPointId });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in AddKeyPoint: {ex.Message}");
+                Console.WriteLine($"StackTrace: {ex.StackTrace}");
+                return BadRequest(new { error = ex.Message, stackTrace = ex.StackTrace });
+            }
         }
 
         [HttpPut("{id}/publish")]

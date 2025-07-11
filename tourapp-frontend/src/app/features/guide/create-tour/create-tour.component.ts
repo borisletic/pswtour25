@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { firstValueFrom } from 'rxjs';
 import * as L from 'leaflet';
 
 // Fix Leaflet icon issue
@@ -167,7 +168,49 @@ export class CreateTourComponent implements OnInit, AfterViewInit {
     });
   }
 
-  onSubmit(): void {
+  private validateKeyPoints(keyPoints: any[]): boolean {
+    console.log('Validating keyPoints:', keyPoints);
+    
+    for (let i = 0; i < keyPoints.length; i++) {
+      const kp = keyPoints[i];
+      console.log(`Validating keyPoint ${i + 1}:`, kp);
+      
+      if (!kp.name || kp.name.trim() === '') {
+        console.error(`KeyPoint ${i + 1} missing name`);
+        this.snackBar.open(`KeyPoint ${i + 1} must have a name`, 'Close', { duration: 3000 });
+        return false;
+      }
+      
+      if (!kp.description || kp.description.trim() === '') {
+        console.error(`KeyPoint ${i + 1} missing description`);
+        this.snackBar.open(`KeyPoint ${i + 1} must have a description`, 'Close', { duration: 3000 });
+        return false;
+      }
+      
+      if (typeof kp.latitude !== 'number' || isNaN(kp.latitude)) {
+        console.error(`KeyPoint ${i + 1} invalid latitude:`, kp.latitude);
+        this.snackBar.open(`KeyPoint ${i + 1} has invalid coordinates`, 'Close', { duration: 3000 });
+        return false;
+      }
+      
+      if (typeof kp.longitude !== 'number' || isNaN(kp.longitude)) {
+        console.error(`KeyPoint ${i + 1} invalid longitude:`, kp.longitude);
+        this.snackBar.open(`KeyPoint ${i + 1} has invalid coordinates`, 'Close', { duration: 3000 });
+        return false;
+      }
+      
+      if (!kp.order || kp.order <= 0) {
+        console.error(`KeyPoint ${i + 1} invalid order:`, kp.order);
+        this.snackBar.open(`KeyPoint ${i + 1} has invalid order`, 'Close', { duration: 3000 });
+        return false;
+      }
+    }
+    
+    console.log('All keyPoints validated successfully');
+    return true;
+  }
+
+  async onSubmit(): Promise<void> {
     if (this.tourForm.invalid) {
       return;
     }
@@ -175,59 +218,74 @@ export class CreateTourComponent implements OnInit, AfterViewInit {
     this.loading = true;
     const formValue = this.tourForm.value;
     
-    // Create tour first
-    this.tourService.createTour({
-      name: formValue.name,
-      description: formValue.description,
-      difficulty: formValue.difficulty,
-      category: formValue.category,
-      price: formValue.price,
-      scheduledDate: formValue.scheduledDate
-    }).subscribe({
-      next: (response) => {
-        this.currentTourId = response.tourId;
-        
-        // Add key points
-        if (formValue.keyPoints.length > 0) {
-          this.addKeyPointsToTour(formValue.keyPoints);
-        } else {
-          this.loading = false;
-          this.snackBar.open('Tour created successfully!', 'Close', { duration: 3000 });
-          this.router.navigate(['/guide/tours']);
-        }
-      },
-      error: (error) => {
-        this.loading = false;
-        this.snackBar.open('Failed to create tour', 'Close', { duration: 3000 });
+    // Validate keypoints before proceeding
+    if (formValue.keyPoints.length > 0 && !this.validateKeyPoints(formValue.keyPoints)) {
+      this.loading = false;
+      return;
+    }
+    
+    try {
+      // Create tour first
+      const response = await firstValueFrom(this.tourService.createTour({
+        name: formValue.name,
+        description: formValue.description,
+        difficulty: formValue.difficulty,
+        category: formValue.category,
+        price: formValue.price,
+        scheduledDate: formValue.scheduledDate
+      }));
+      
+      this.currentTourId = response.tourId;
+      console.log('Tour created with ID:', this.currentTourId);
+      
+      // Add key points sequentially
+      if (formValue.keyPoints.length > 0) {
+        await this.addKeyPointsToTour(formValue.keyPoints);
       }
-    });
+      
+      this.loading = false;
+      this.snackBar.open('Tour created successfully!', 'Close', { duration: 3000 });
+      this.router.navigate(['/guide/tours']);
+      
+    } catch (error) {
+      this.loading = false;
+      console.error('Error creating tour:', error);
+      this.snackBar.open('Failed to create tour', 'Close', { duration: 3000 });
+    }
   }
 
-  private addKeyPointsToTour(keyPoints: any[]): void {
-    let completed = 0;
+  private async addKeyPointsToTour(keyPoints: any[]): Promise<void> {
+    console.log('addKeyPointsToTour called with:', keyPoints);
+    console.log('currentTourId:', this.currentTourId);
     
-    keyPoints.forEach((keyPoint) => {
-      this.tourService.addKeyPoint(this.currentTourId!, {
-        name: keyPoint.name,
-        description: keyPoint.description,
-        latitude: keyPoint.latitude,
-        longitude: keyPoint.longitude,
-        imageUrl: keyPoint.imageUrl,
-        order: keyPoint.order
-      }).subscribe({
-        next: () => {
-          completed++;
-          if (completed === keyPoints.length) {
-            this.loading = false;
-            this.snackBar.open('Tour created successfully!', 'Close', { duration: 3000 });
-            this.router.navigate(['/guide/tours']);
-          }
-        },
-        error: (error) => {
-          this.loading = false;
-          this.snackBar.open('Failed to add key point', 'Close', { duration: 3000 });
-        }
-      });
-    });
+    try {
+      // Add key points sequentially instead of in parallel
+      for (let i = 0; i < keyPoints.length; i++) {
+        const keyPoint = keyPoints[i];
+        
+        const keyPointData = {
+          name: keyPoint.name,
+          description: keyPoint.description,
+          latitude: keyPoint.latitude,
+          longitude: keyPoint.longitude,
+          imageUrl: keyPoint.imageUrl,
+          order: keyPoint.order
+        };
+        
+        console.log(`Adding key point ${i + 1}/${keyPoints.length}:`, keyPointData);
+        
+        const response = await firstValueFrom(
+          this.tourService.addKeyPoint(this.currentTourId!, keyPointData)
+        );
+        
+        console.log(`KeyPoint ${i + 1} created successfully:`, response);
+      }
+      
+      console.log('All key points added successfully');
+      
+    } catch (error) {
+      console.error('Error adding key points:', error);
+      throw error; // Re-throw to be caught by onSubmit
+    }
   }
 }
