@@ -30,6 +30,12 @@ namespace TourApp.Infrastructure.Persistence.Context
         {
             base.OnModelCreating(modelBuilder);
 
+            // Ignore the Event classes - they are only for JSON serialization, not EF entities
+            modelBuilder.Ignore<TourApp.Domain.Events.ProblemEvent>();
+            modelBuilder.Ignore<TourApp.Domain.Events.ProblemCreatedEvent>();
+            modelBuilder.Ignore<TourApp.Domain.Events.ProblemStatusChangedEvent>();
+            modelBuilder.Ignore<TourApp.Domain.Events.TourCancelledEvent>();
+
             // Apply configurations
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new TouristConfiguration());

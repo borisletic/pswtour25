@@ -9,7 +9,11 @@ namespace TourApp.Domain.Events
 {
     public class ProblemCreatedEvent : ProblemEvent
     {
-        public ProblemStatus InitialStatus { get; }
+        public ProblemStatus InitialStatus { get; set; }
+
+        public ProblemCreatedEvent()
+        {
+        }
 
         public ProblemCreatedEvent(Guid problemId, ProblemStatus initialStatus)
             : base(problemId)

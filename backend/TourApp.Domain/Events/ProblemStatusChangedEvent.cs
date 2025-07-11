@@ -9,8 +9,12 @@ namespace TourApp.Domain.Events
 {
     public class ProblemStatusChangedEvent : ProblemEvent
     {
-        public ProblemStatus OldStatus { get; }
-        public ProblemStatus NewStatus { get; }
+        public ProblemStatus OldStatus { get; set; }
+        public ProblemStatus NewStatus { get; set; }
+
+        public ProblemStatusChangedEvent()
+        {
+        }
 
         public ProblemStatusChangedEvent(Guid problemId, ProblemStatus oldStatus, ProblemStatus newStatus)
             : base(problemId)
