@@ -1,0 +1,133 @@
+.create-tour-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tour-form-card,
+.key-points-card,
+.key-points-form-card {
+  margin-bottom: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.full-width-field {
+  grid-column: 1 / -1;
+}
+
+// Map styling
+.map-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#create-tour-map {
+  height: 400px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.map-instructions {
+  margin-bottom: 15px;
+  color: #666;
+  font-style: italic;
+}
+
+// Key Points Form styling
+.key-points-form-card {
+  mat-card-content {
+    padding-top: 0;
+  }
+}
+
+.key-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.key-point-item {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.key-point-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  
+  mat-icon {
+    margin-right: 8px;
+  }
+  
+  .key-point-number {
+    flex: 1;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .delete-button {
+    margin-left: auto;
+  }
+}
+
+.key-point-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.key-point-field {
+  width: 100%;
+}
+
+// Form actions
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  
+  mat-spinner {
+    margin-right: 10px;
+  }
+}
+
+// Material overrides for better z-index management
+::ng-deep {
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  // Ensure dropdowns appear above everything
+  .cdk-overlay-container {
+    z-index: 3000 !important;
+  }
+  
+  .mat-select-panel {
+    z-index: 3001 !important;
+  }
+  
+  .mat-datepicker-popup {
+    z-index: 3002 !important;
+  }
+  
+  .mat-dialog-container {
+    z-index: 3003 !important;
+  }
+}

@@ -17,6 +17,22 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import * as L from 'leaflet';
 
+// Fix Leaflet icon issue
+const iconRetinaUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png';
+const iconUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png';
+const shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
+const iconDefault = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+L.Marker.prototype.options.icon = iconDefault;
+
 @Component({
   selector: 'app-create-tour',
   standalone: true,
@@ -85,6 +101,13 @@ export class CreateTourComponent implements OnInit, AfterViewInit {
   }
 
   initializeMap(): void {
+    // Check if the map container exists
+    const mapContainer = document.getElementById('create-tour-map');
+    if (!mapContainer) {
+      console.error('Map container not found');
+      return;
+    }
+
     this.map = L.map('create-tour-map').setView([45.2671, 19.8335], 13); // Novi Sad coordinates
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -95,8 +118,6 @@ export class CreateTourComponent implements OnInit, AfterViewInit {
       this.addKeyPoint(e.latlng.lat, e.latlng.lng);
     });
   }
-
-  
 
   addKeyPoint(lat: number, lng: number): void {
     const keyPointForm = this.fb.group({
@@ -113,110 +134,100 @@ export class CreateTourComponent implements OnInit, AfterViewInit {
     // Add marker to map
     const marker = L.marker([lat, lng], { draggable: true })
       .addTo(this.map!)
-      .bindPopup(`Key Point ${this.keyPoints.length}`);
+      .bindPopup(`Key Point ${this.keyPoints.length}`)
+      .openPopup();
     
-    marker.on('dragend', (e) => {
-      const newLatLng = e.target.getLatLng();
+    // Update position when dragged
+    marker.on('dragend', (e: any) => {
+      const position = e.target.getLatLng();
       const index = this.markers.indexOf(marker);
-      this.keyPoints.at(index).patchValue({
-        latitude: newLatLng.lat,
-        longitude: newLatLng.lng
-      });
+      if (index !== -1) {
+        this.keyPoints.at(index).patchValue({
+          latitude: position.lat,
+          longitude: position.lng
+        });
+      }
     });
     
     this.markers.push(marker);
-    this.updatePolyline();
   }
 
   removeKeyPoint(index: number): void {
     this.keyPoints.removeAt(index);
-    this.map!.removeLayer(this.markers[index]);
-    this.markers.splice(index, 1);
     
-    // Update order numbers
+    // Remove marker from map
+    if (this.markers[index]) {
+      this.map!.removeLayer(this.markers[index]);
+      this.markers.splice(index, 1);
+    }
+    
+    // Update order for remaining key points
     this.keyPoints.controls.forEach((control, i) => {
       control.patchValue({ order: i + 1 });
     });
-    
-    this.updatePolyline();
   }
 
-  private polyline: L.Polyline | null = null;
-  
-  updatePolyline(): void {
-    if (this.polyline) {
-      this.map!.removeLayer(this.polyline);
-    }
-    
-    if (this.markers.length > 1) {
-      const latLngs = this.markers.map(m => m.getLatLng());
-      this.polyline = L.polyline(latLngs, { color: 'blue' }).addTo(this.map!);
-    }
-  }
-
-  async createTour(): Promise<void> {
+  onSubmit(): void {
     if (this.tourForm.invalid) {
       return;
     }
 
     this.loading = true;
     const formValue = this.tourForm.value;
-    const tourData = {
+    
+    // Create tour first
+    this.tourService.createTour({
       name: formValue.name,
       description: formValue.description,
       difficulty: formValue.difficulty,
       category: formValue.category,
       price: formValue.price,
-      scheduledDate: new Date(formValue.scheduledDate)
-    };
-
-    try {
-      const response = await this.tourService.createTour(tourData).toPromise();
-      this.currentTourId = response!.tourId;
-      
-      // Add key points
-      for (const keyPoint of formValue.keyPoints) {
-        await this.tourService.addKeyPoint(this.currentTourId, keyPoint).toPromise();
+      scheduledDate: formValue.scheduledDate
+    }).subscribe({
+      next: (response) => {
+        this.currentTourId = response.tourId;
+        
+        // Add key points
+        if (formValue.keyPoints.length > 0) {
+          this.addKeyPointsToTour(formValue.keyPoints);
+        } else {
+          this.loading = false;
+          this.snackBar.open('Tour created successfully!', 'Close', { duration: 3000 });
+          this.router.navigate(['/guide/tours']);
+        }
+      },
+      error: (error) => {
+        this.loading = false;
+        this.snackBar.open('Failed to create tour', 'Close', { duration: 3000 });
       }
-      
-      this.snackBar.open('Tour created successfully!', 'Close', { duration: 3000 });
-      
-      // Ask if user wants to publish
-      const snackBarRef = this.snackBar.open(
-        'Tour created! Do you want to publish it now?', 
-        'Publish', 
-        { duration: 5000 }
-      );
-      
-      snackBarRef.onAction().subscribe(() => {
-        this.publishTour();
+    });
+  }
+
+  private addKeyPointsToTour(keyPoints: any[]): void {
+    let completed = 0;
+    
+    keyPoints.forEach((keyPoint) => {
+      this.tourService.addKeyPoint(this.currentTourId!, {
+        name: keyPoint.name,
+        description: keyPoint.description,
+        latitude: keyPoint.latitude,
+        longitude: keyPoint.longitude,
+        imageUrl: keyPoint.imageUrl,
+        order: keyPoint.order
+      }).subscribe({
+        next: () => {
+          completed++;
+          if (completed === keyPoints.length) {
+            this.loading = false;
+            this.snackBar.open('Tour created successfully!', 'Close', { duration: 3000 });
+            this.router.navigate(['/guide/tours']);
+          }
+        },
+        error: (error) => {
+          this.loading = false;
+          this.snackBar.open('Failed to add key point', 'Close', { duration: 3000 });
+        }
       });
-      
-    } catch (error) {
-      this.snackBar.open('Failed to create tour', 'Close', { duration: 3000 });
-    } finally {
-      this.loading = false;
-    }
-  }
-
-  async publishTour(): Promise<void> {
-    if (!this.currentTourId) return;
-    
-    try {
-      await this.tourService.publishTour(this.currentTourId).toPromise();
-      this.snackBar.open('Tour published successfully!', 'Close', { duration: 3000 });
-      this.router.navigate(['/guide/tours']);
-    } catch (error) {
-      this.snackBar.open('Failed to publish tour', 'Close', { duration: 3000 });
-    }
-  }
-
-  onSubmit(): void {
-    if (this.keyPoints.length < 2) {
-      this.snackBar.open('Please add at least 2 key points', 'Close', { duration: 3000 });
-      return;
-    }
-    
-    this.createTour();
+    });
   }
 }

@@ -44,7 +44,7 @@ namespace TourApp.Domain.Entities
             CreatedAt = DateTime.UtcNow;
         }
 
-        public void AddKeyPoint(KeyPoint keyPoint)
+        public void AddKeyPoint(string v, KeyPoint keyPoint)
         {
             if (keyPoint == null)
                 throw new ArgumentNullException(nameof(keyPoint));

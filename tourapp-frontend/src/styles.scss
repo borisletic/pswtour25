@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+/* Leaflet map container fix */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Fix for Leaflet default markers */
+.leaflet-default-icon-path {
+  background-image: url(https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png);
+}
+
+/* Ensure map containers have proper height */
+#create-tour-map,
+#tour-detail-map {
+  height: 400px;
+  width: 100%;
+  z-index: 0;
+}
+
+/* Fix Leaflet controls z-index to work with Material components */
+.leaflet-control {
+  z-index: 800 !important;
+}
+
+.leaflet-pane {
+  z-index: 400 !important;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1000 !important;
+}
+
+/* Fix for form fields appearing below map */
+.key-points-list {
+  position: relative;
+  z-index: 1100 !important;
+}
+
+.key-point-item {
+  position: relative;
+  z-index: 1100 !important;
+  background-color: white;
+}
+
+/* Ensure Material form fields are above map elements */
+mat-form-field {
+  position: relative;
+  z-index: 1100 !important;
+}
+
+/* Fix Material overlay panels */
+.cdk-overlay-container {
+  z-index: 2000 !important;
+}
+
+.mat-select-panel {
+  z-index: 2001 !important;
+}
+
+.mat-dialog-container {
+  z-index: 2002 !important;
+}

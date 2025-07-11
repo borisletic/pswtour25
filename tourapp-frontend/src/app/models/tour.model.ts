@@ -14,9 +14,9 @@ export enum TourDifficulty {
 }
 
 export enum TourStatus {
-  Draft = 'Draft',
-  Published = 'Published',
-  Cancelled = 'Cancelled'
+  Draft = 1,
+  Published = 2,
+  Cancelled = 3
 }
 
 export interface Location {
@@ -60,7 +60,7 @@ export interface Tour {
 export interface TourFilter {
   category?: Interest;
   difficulty?: TourDifficulty;
-  status?: TourStatus;
+  status?: string;  // Changed to string since backend expects string
   guideId?: string;
   rewardedGuidesOnly?: boolean;
 }

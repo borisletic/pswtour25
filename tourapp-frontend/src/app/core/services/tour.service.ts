@@ -16,11 +16,22 @@ export class TourService {
     let params = new HttpParams();
     
     if (filter) {
-      if (filter.category) params = params.set('category', filter.category.toString());
-      if (filter.difficulty) params = params.set('difficulty', filter.difficulty.toString());
-      if (filter.status) params = params.set('status', filter.status);
-      if (filter.guideId) params = params.set('guideId', filter.guideId);
-      if (filter.rewardedGuidesOnly) params = params.set('rewardedGuidesOnly', 'true');
+      // Send numeric enum values instead of string representations
+      if (filter.category !== undefined && filter.category !== null) {
+        params = params.set('category', filter.category.toString());
+      }
+      if (filter.difficulty !== undefined && filter.difficulty !== null) {
+        params = params.set('difficulty', filter.difficulty.toString());
+      }
+      if (filter.status) {
+        params = params.set('status', filter.status);
+      }
+      if (filter.guideId) {
+        params = params.set('guideId', filter.guideId);
+      }
+      if (filter.rewardedGuidesOnly === true) {
+        params = params.set('rewardedGuidesOnly', 'true');
+      }
     }
 
     return this.http.get<Tour[]>(this.apiUrl, { params });
