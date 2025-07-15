@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { firstValueFrom } from 'rxjs';
+import { MatDivider } from "@angular/material/divider";
+
 
 @Component({
   selector: 'app-shopping-cart',
@@ -27,8 +29,9 @@ import { firstValueFrom } from 'rxjs';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
-  ],
+    MatSnackBarModule,
+    MatDivider
+],
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
@@ -39,6 +42,8 @@ export class ShoppingCartComponent implements OnInit {
   bonusPointsToUse = 0;
   finalPrice = 0;
   loading = false;
+  Math = Math;
+
 
   constructor(
     private purchaseService: PurchaseService,
@@ -54,13 +59,25 @@ export class ShoppingCartComponent implements OnInit {
     });
     
     this.loadUserBonusPoints();
+
+    this.authService.currentUser$.subscribe(user => {
+      if (user && user.bonusPoints !== undefined) {
+        this.bonusPointsAvailable = user.bonusPoints;
+      }
+    });
   }
 
   loadUserBonusPoints(): void {
-    // In real app, this would be loaded from user profile
-    // For now, we'll assume it's part of the user data
-    const user = this.authService.getCurrentUser();
-    this.bonusPointsAvailable = user.bonusPoints || 0;
+    // Refresh user profile to get latest bonus points
+    this.authService.refreshProfile().subscribe({
+      next: (profile) => {
+        this.bonusPointsAvailable = profile.bonusPoints || 0;
+      },
+      error: (error) => {
+        console.error('Error loading bonus points:', error);
+        this.bonusPointsAvailable = 0;
+      }
+    });
   }
 
   calculateTotals(): void {
@@ -87,7 +104,7 @@ export class ShoppingCartComponent implements OnInit {
     this.snackBar.open('Tour removed from cart', 'Close', { duration: 2000 });
   }
 
-  async checkout(): Promise<void> {
+   async checkout(): Promise<void> {
     if (this.cartItems.length === 0) {
       this.snackBar.open('Your cart is empty', 'Close', { duration: 3000 });
       return;
@@ -98,6 +115,10 @@ export class ShoppingCartComponent implements OnInit {
     try {
       const result = await firstValueFrom(this.purchaseService.purchase(this.bonusPointsToUse));
       this.purchaseService.clearCart();
+      
+      // Refresh user profile to update bonus points after purchase
+      await firstValueFrom(this.authService.refreshProfile());
+      
       this.snackBar.open('Purchase successful!', 'Close', { duration: 3000 });
       this.router.navigate(['/profile/purchases']);
     } catch (error: any) {

@@ -1,56 +1,96 @@
 <div class="cart-container">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Shopping Cart</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+  <mat-card class="cart-card">
+    <div class="cart-header">
+      <h1>
+        <mat-icon>shopping_cart</mat-icon>
+        Shopping Cart
+      </h1>
+    </div>
+    
+    <mat-card-content class="cart-content">
+      <!-- Empty cart state -->
       <div *ngIf="cartItems.length === 0" class="empty-cart">
-        <p>Your cart is empty</p>
-        <button mat-raised-button color="primary" routerLink="/tours">
+        <mat-icon class="empty-icon">shopping_cart</mat-icon>
+        <h3>Your cart is empty</h3>
+        <p>Discover amazing tours and add them to your cart</p>
+        <button mat-raised-button color="primary" routerLink="/tours" class="browse-btn">
+          <mat-icon>explore</mat-icon>
           Browse Tours
         </button>
       </div>
 
-      <div *ngIf="cartItems.length > 0">
+      <!-- Cart items -->
+      <div *ngIf="cartItems.length > 0" class="cart-items">
         <div class="cart-item" *ngFor="let item of cartItems">
           <div class="item-details">
-            <h3>{{item.tour.name}}</h3>
-            <p>{{item.tour.scheduledDate | date:'medium'}}</p>
-            <p class="item-price">{{item.tour.price}} {{item.tour.currency}}</p>
+            <h3 class="item-title">{{item.tour.name}}</h3>
+            <div class="item-date">
+              <mat-icon>schedule</mat-icon>
+              {{item.tour.scheduledDate | date:'medium'}}
+            </div>
+            <div class="item-price">{{item.tour.price}} {{item.tour.currency}}</div>
           </div>
-          <button mat-icon-button color="warn" (click)="removeFromCart(item.tour.id)">
+          <button mat-icon-button 
+                  color="warn" 
+                  (click)="removeFromCart(item.tour.id)"
+                  class="remove-btn"
+                  matTooltip="Remove from cart">
             <mat-icon>delete</mat-icon>
           </button>
         </div>
 
+        <!-- Cart Summary -->
         <div class="cart-summary">
           <div class="summary-row">
-            <span>Subtotal:</span>
-            <span>{{totalPrice}} EUR</span>
+            <span class="summary-label">Subtotal:</span>
+            <span class="summary-value">{{totalPrice}} EUR</span>
           </div>
+          
           <div class="summary-row" *ngIf="bonusPointsAvailable > 0">
-            <span>Available Bonus Points:</span>
-            <span>{{bonusPointsAvailable}}</span>
+            <span class="summary-label">Available Bonus Points:</span>
+            <span class="summary-value">
+              <mat-icon class="bonus-icon">stars</mat-icon>
+              {{bonusPointsAvailable}} points
+            </span>
           </div>
-          <div class="summary-row" *ngIf="bonusPointsAvailable > 0">
-            <mat-form-field appearance="outline">
+
+          <div class="bonus-points-section" *ngIf="bonusPointsAvailable > 0">
+            <mat-form-field appearance="outline" class="bonus-field">
               <mat-label>Use Bonus Points</mat-label>
-              <input matInput type="number" [(ngModel)]="bonusPointsToUse" 
+              <input matInput 
+                     type="number" 
+                     [(ngModel)]="bonusPointsToUse" 
                      (ngModelChange)="onBonusPointsChange()"
-                     [max]="bonusPointsAvailable" min="0">
+                     [max]="Math.min(bonusPointsAvailable, totalPrice)" 
+                     min="0"
+                     placeholder="0">
+              <mat-icon matSuffix>stars</mat-icon>
+              <mat-hint>Max: {{Math.min(bonusPointsAvailable, totalPrice)}} points</mat-hint>
             </mat-form-field>
           </div>
-          <div class="summary-row total">
-            <span>Total:</span>
-            <span>{{finalPrice}} EUR</span>
+
+          <mat-divider class="summary-divider"></mat-divider>
+          
+          <div class="summary-row total-row">
+            <span class="total-label">Total:</span>
+            <span class="total-value">{{finalPrice}} EUR</span>
           </div>
         </div>
 
+        <!-- Actions -->
         <div class="checkout-actions">
-          <button mat-button routerLink="/tours">Continue Shopping</button>
-          <button mat-raised-button color="primary" (click)="checkout()" [disabled]="loading">
-            <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
-            <span *ngIf="!loading">Checkout</span>
+          <button mat-button routerLink="/tours" class="continue-btn">
+            <mat-icon>arrow_back</mat-icon>
+            Continue Shopping
+          </button>
+          <button mat-raised-button 
+                  color="primary" 
+                  (click)="checkout()" 
+                  [disabled]="loading"
+                  class="checkout-btn">
+            <mat-spinner *ngIf="loading" diameter="20" class="btn-spinner"></mat-spinner>
+            <mat-icon *ngIf="!loading">payment</mat-icon>
+            {{loading ? 'Processing...' : 'Checkout'}}
           </button>
         </div>
       </div>

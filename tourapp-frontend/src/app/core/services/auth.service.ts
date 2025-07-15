@@ -43,6 +43,8 @@ export class AuthService {
     
     if (token && userData) {
       this.currentUserSubject.next(JSON.parse(userData));
+      // Refresh profile data on app load
+      this.loadUserProfile().subscribe();
     }
   }
 
@@ -58,8 +60,27 @@ export class AuthService {
           };
           localStorage.setItem(this.USER_KEY, JSON.stringify(userData));
           this.currentUserSubject.next(userData);
+          
+          // Load full profile after login
+          this.loadUserProfile().subscribe();
         })
       );
+  }
+
+  loadUserProfile(): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/User/profile`)
+      .pipe(
+        tap(profile => {
+          const currentUser = this.getCurrentUser();
+          const updatedUser = { ...currentUser, ...profile };
+          localStorage.setItem(this.USER_KEY, JSON.stringify(updatedUser));
+          this.currentUserSubject.next(updatedUser);
+        })
+      );
+  }
+
+  refreshProfile(): Observable<any> {
+    return this.loadUserProfile();
   }
 
   register(data: RegisterRequest): Observable<any> {
@@ -89,4 +110,6 @@ export class AuthService {
     const user = this.getCurrentUser();
     return user && user.type === role;
   }
+
+  
 }
