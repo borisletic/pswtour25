@@ -3,6 +3,54 @@
   "WorkspaceRootPath": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{14BB8EAD-9E59-46B8-832D-142D489789BF}|TourApp.Infrastructure\\TourApp.Infrastructure.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.infrastructure\\persistence\\repositories\\touristrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14BB8EAD-9E59-46B8-832D-142D489789BF}|TourApp.Infrastructure\\TourApp.Infrastructure.csproj|solutionrelative:tourapp.infrastructure\\persistence\\repositories\\touristrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\services\\tourrecommendationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\services\\tourrecommendationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\handlers\\publishtourhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\handlers\\publishtourhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|solutionrelative:tourapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\services\\itourrecommendationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\services\\itourrecommendationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\handlers\\gettouristprofilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\handlers\\gettouristprofilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\dtos\\touristprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\dtos\\touristprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\queries\\gettouristprofilequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\queries\\gettouristprofilequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.api\\controllers\\touristcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|solutionrelative:tourapp.api\\controllers\\touristcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\handlers\\updateinterestshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\handlers\\updateinterestshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\commands\\updateinterestscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\commands\\updateinterestscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.api\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|solutionrelative:tourapp.api\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,20 +75,12 @@
       "RelativeMoniker": "D:0:0:{14BB8EAD-9E59-46B8-832D-142D489789BF}|TourApp.Infrastructure\\TourApp.Infrastructure.csproj|solutionrelative:tourapp.infrastructure\\persistence\\repositories\\ratingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|solutionrelative:tourapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|solutionrelative:tourapp.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{14BB8EAD-9E59-46B8-832D-142D489789BF}|TourApp.Infrastructure\\TourApp.Infrastructure.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.infrastructure\\services\\hangfireauthorizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14BB8EAD-9E59-46B8-832D-142D489789BF}|TourApp.Infrastructure\\TourApp.Infrastructure.csproj|solutionrelative:tourapp.infrastructure\\services\\hangfireauthorizationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D49A5DE0-D66C-423E-AD39-0FA2432B406F}|TourApp.Application\\TourApp.Application.csproj|solutionrelative:tourapp.application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77139758-8F47-4FDF-8F91-B3906799C226}|TourApp.API\\TourApp.API.csproj|c:\\users\\win 11\\desktop\\pswtour\\backend\\tourapp.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,19 +135,175 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TouristRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Infrastructure\\Persistence\\Repositories\\TouristRepository.cs",
+              "RelativeDocumentMoniker": "TourApp.Infrastructure\\Persistence\\Repositories\\TouristRepository.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Infrastructure\\Persistence\\Repositories\\TouristRepository.cs",
+              "RelativeToolTip": "TourApp.Infrastructure\\Persistence\\Repositories\\TouristRepository.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAUwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T02:47:21.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TourRecommendationService.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Services\\TourRecommendationService.cs",
+              "RelativeDocumentMoniker": "TourApp.Application\\Services\\TourRecommendationService.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Services\\TourRecommendationService.cs",
+              "RelativeToolTip": "TourApp.Application\\Services\\TourRecommendationService.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAiwGQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T02:35:40.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PublishTourHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Handlers\\PublishTourHandler.cs",
+              "RelativeDocumentMoniker": "TourApp.Application\\Handlers\\PublishTourHandler.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Handlers\\PublishTourHandler.cs",
+              "RelativeToolTip": "TourApp.Application\\Handlers\\PublishTourHandler.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowD0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T01:56:51.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ITourRecommendationService.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Services\\ITourRecommendationService.cs",
+              "RelativeDocumentMoniker": "TourApp.Application\\Services\\ITourRecommendationService.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Services\\ITourRecommendationService.cs",
+              "RelativeToolTip": "TourApp.Application\\Services\\ITourRecommendationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T01:56:00.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GetTouristProfileHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Handlers\\GetTouristProfileHandler.cs",
+              "RelativeDocumentMoniker": "TourApp.Application\\Handlers\\GetTouristProfileHandler.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Handlers\\GetTouristProfileHandler.cs",
+              "RelativeToolTip": "TourApp.Application\\Handlers\\GetTouristProfileHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T01:55:34.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TouristProfileDto.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\DTOs\\TouristProfileDto.cs",
+              "RelativeDocumentMoniker": "TourApp.Application\\DTOs\\TouristProfileDto.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\DTOs\\TouristProfileDto.cs",
+              "RelativeToolTip": "TourApp.Application\\DTOs\\TouristProfileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T01:54:59.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GetTouristProfileQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Queries\\GetTouristProfileQuery.cs",
+              "RelativeDocumentMoniker": "TourApp.Application\\Queries\\GetTouristProfileQuery.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Queries\\GetTouristProfileQuery.cs",
+              "RelativeToolTip": "TourApp.Application\\Queries\\GetTouristProfileQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T01:54:26.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TouristController.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Controllers\\TouristController.cs",
+              "RelativeDocumentMoniker": "TourApp.API\\Controllers\\TouristController.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Controllers\\TouristController.cs",
+              "RelativeToolTip": "TourApp.API\\Controllers\\TouristController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAqwDAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T01:53:42.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UpdateInterestsHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Handlers\\UpdateInterestsHandler.cs",
+              "RelativeDocumentMoniker": "TourApp.Application\\Handlers\\UpdateInterestsHandler.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Handlers\\UpdateInterestsHandler.cs",
+              "RelativeToolTip": "TourApp.Application\\Handlers\\UpdateInterestsHandler.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwCkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T01:53:07.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Program.cs",
+              "RelativeDocumentMoniker": "TourApp.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Program.cs",
+              "RelativeToolTip": "TourApp.API\\Program.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T00:08:15.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "TourApp.Application\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Services\\EmailService.cs",
+              "RelativeToolTip": "TourApp.Application\\Services\\EmailService.cs",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAAAOQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T22:06:06.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UpdateInterestsCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Commands\\UpdateInterestsCommand.cs",
+              "RelativeDocumentMoniker": "TourApp.Application\\Commands\\UpdateInterestsCommand.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Commands\\UpdateInterestsCommand.cs",
+              "RelativeToolTip": "TourApp.Application\\Commands\\UpdateInterestsCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T01:52:29.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "TestController.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Controllers\\TestController.cs",
               "RelativeDocumentMoniker": "TourApp.API\\Controllers\\TestController.cs",
               "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Controllers\\TestController.cs",
               "RelativeToolTip": "TourApp.API\\Controllers\\TestController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-16T01:10:16.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 13,
               "Title": "TourController.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Controllers\\TourController.cs",
               "RelativeDocumentMoniker": "TourApp.API\\Controllers\\TourController.cs",
@@ -115,12 +311,11 @@
               "RelativeToolTip": "TourApp.API\\Controllers\\TourController.cs",
               "ViewState": "AgIAAJ0AAAAAAAAAAAAAwKgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T01:09:08.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T01:09:08.195Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 17,
               "Title": "RatingRepository.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Infrastructure\\Persistence\\Repositories\\RatingRepository.cs",
               "RelativeDocumentMoniker": "TourApp.Infrastructure\\Persistence\\Repositories\\RatingRepository.cs",
@@ -132,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
               "Title": "IRatingRepository.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Domain\\Repositories\\IRatingRepository.cs",
               "RelativeDocumentMoniker": "TourApp.Domain\\Repositories\\IRatingRepository.cs",
@@ -144,7 +339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "GetPurchaseHistoryHandler.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Handlers\\GetPurchaseHistoryHandler.cs",
               "RelativeDocumentMoniker": "TourApp.Application\\Handlers\\GetPurchaseHistoryHandler.cs",
@@ -156,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "TourDto.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\DTOs\\TourDto.cs",
               "RelativeDocumentMoniker": "TourApp.Application\\DTOs\\TourDto.cs",
@@ -164,24 +359,11 @@
               "RelativeToolTip": "TourApp.Application\\DTOs\\TourDto.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T00:43:22.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T00:43:22.53Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Program.cs",
-              "RelativeDocumentMoniker": "TourApp.API\\Program.cs",
-              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Program.cs",
-              "RelativeToolTip": "TourApp.API\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T00:08:15.808Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 19,
               "Title": "HangfireAuthorizationFilter.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Infrastructure\\Services\\HangfireAuthorizationFilter.cs",
               "RelativeDocumentMoniker": "TourApp.Infrastructure\\Services\\HangfireAuthorizationFilter.cs",
@@ -193,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 20,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "TourApp.API\\Controllers\\UserController.cs",
@@ -205,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "ProblemConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Infrastructure\\Persistence\\Configurations\\ProblemConfiguration.cs",
               "RelativeDocumentMoniker": "TourApp.Infrastructure\\Persistence\\Configurations\\ProblemConfiguration.cs",
@@ -217,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "TourCancelledEvent.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Domain\\Events\\TourCancelledEvent.cs",
               "RelativeDocumentMoniker": "TourApp.Domain\\Events\\TourCancelledEvent.cs",
@@ -229,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "ProblemStatusChangedEvent.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Domain\\Events\\ProblemStatusChangedEvent.cs",
               "RelativeDocumentMoniker": "TourApp.Domain\\Events\\ProblemStatusChangedEvent.cs",
@@ -241,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 24,
               "Title": "ProblemCreatedEvent.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Domain\\Events\\ProblemCreatedEvent.cs",
               "RelativeDocumentMoniker": "TourApp.Domain\\Events\\ProblemCreatedEvent.cs",
@@ -253,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 26,
               "Title": "ProblemEvent.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Domain\\Events\\ProblemEvent.cs",
               "RelativeDocumentMoniker": "TourApp.Domain\\Events\\ProblemEvent.cs",
@@ -265,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 18,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.API\\appsettings.json",
               "RelativeDocumentMoniker": "TourApp.API\\appsettings.json",
@@ -277,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "TourAppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Infrastructure\\Persistence\\Context\\TourAppDbContext.cs",
               "RelativeDocumentMoniker": "TourApp.Infrastructure\\Persistence\\Context\\TourAppDbContext.cs",
@@ -289,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 28,
               "Title": "ProblemRepository.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Infrastructure\\Persistence\\Repositories\\ProblemRepository.cs",
               "RelativeDocumentMoniker": "TourApp.Infrastructure\\Persistence\\Repositories\\ProblemRepository.cs",
@@ -301,19 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Services\\EmailService.cs",
-              "RelativeDocumentMoniker": "TourApp.Application\\Services\\EmailService.cs",
-              "ToolTip": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Services\\EmailService.cs",
-              "RelativeToolTip": "TourApp.Application\\Services\\EmailService.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAAMQAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T22:06:06.967Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 27,
               "Title": "PurchaseRepository.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Infrastructure\\Persistence\\Repositories\\PurchaseRepository.cs",
               "RelativeDocumentMoniker": "TourApp.Infrastructure\\Persistence\\Repositories\\PurchaseRepository.cs",
@@ -325,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 29,
               "Title": "PurchaseTourHandler.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\pswtour\\backend\\TourApp.Application\\Handlers\\PurchaseTourHandler.cs",
               "RelativeDocumentMoniker": "TourApp.Application\\Handlers\\PurchaseTourHandler.cs",

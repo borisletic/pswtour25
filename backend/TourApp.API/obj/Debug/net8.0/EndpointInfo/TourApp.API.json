@@ -572,6 +572,49 @@
         }
       }
     },
+    "/api/Tourist/interests": {
+      "put": {
+        "tags": [
+          "Tourist"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInterestsCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInterestsCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateInterestsCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Tourist/profile": {
+      "get": {
+        "tags": [
+          "Tourist"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/User/profile": {
       "get": {
         "tags": [
@@ -786,6 +829,23 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "UpdateInterestsCommand": {
+        "type": "object",
+        "properties": {
+          "touristId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "interests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Interest"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       }
     },
     "securitySchemes": {

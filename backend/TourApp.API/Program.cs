@@ -80,6 +80,7 @@ builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<ITourRecommendationService, TourRecommendationService>();
 
 // Configure Hangfire for background jobs
 builder.Services.AddHangfire(configuration => configuration

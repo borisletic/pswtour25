@@ -362,6 +362,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TourApp.API.Controllers.TouristController",
+    "Method": "UpdateInterests",
+    "RelativePath": "api/Tourist/interests",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "TourApp.Application.Commands.UpdateInterestsCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TourApp.API.Controllers.TouristController",
+    "Method": "GetProfile",
+    "RelativePath": "api/Tourist/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TourApp.API.Controllers.UserController",
     "Method": "GetProfile",
     "RelativePath": "api/User/profile",
