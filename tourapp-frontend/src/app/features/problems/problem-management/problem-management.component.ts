@@ -19,7 +19,14 @@ export class ProblemManagementComponent implements OnInit {
   loading = false;
   userRole: string;
   
-  displayedColumns = ['tour', 'tourist', 'title', 'status', 'createdAt', 'actions'];
+  // Različite kolone za različite role
+  get displayedColumns(): string[] {
+    if (this.userRole === 'Tourist') {
+      return ['tour', 'title', 'status', 'createdAt', 'actions'];
+    } else {
+      return ['tour', 'tourist', 'title', 'status', 'createdAt', 'actions'];
+    }
+  }
   
   statusColors: { [key in ProblemStatus]: string } = {
     [ProblemStatus.Pending]: 'warn',
@@ -42,14 +49,51 @@ export class ProblemManagementComponent implements OnInit {
   }
 
   getStatusColor(status: ProblemStatus): string {
-  return this.statusColors[status];
+    return this.statusColors[status];
   }
 
+  getComponentTitle(): string {
+    switch (this.userRole) {
+      case 'Tourist':
+        return 'My Reported Problems';
+      case 'Guide':
+        return 'Reported Problems';
+      case 'Administrator':
+        return 'Problems Under Review';
+      default:
+        return 'Problems';
+    }
+  }
+
+  getEmptyStateMessage(): string {
+    switch (this.userRole) {
+      case 'Tourist':
+        return 'You haven\'t reported any problems yet.';
+      case 'Guide':
+        return 'No problems have been reported for your tours.';
+      case 'Administrator':
+        return 'No problems are currently under review.';
+      default:
+        return 'No problems found.';
+    }
+  }
 
   loadProblems(): void {
     this.loading = true;
     
-    if (this.userRole === 'Guide') {
+    // KLJUČNA IZMENA: Dodana logika za turiste
+    if (this.userRole === 'Tourist') {
+      this.problemService.getTouristProblems().subscribe({
+        next: (problems) => {
+          this.problems = problems;
+          this.loading = false;
+        },
+        error: () => {
+          this.snackBar.open('Failed to load problems', 'Close', { duration: 3000 });
+          this.loading = false;
+        }
+      });
+    } else if (this.userRole === 'Guide') {
       this.problemService.getGuideProblems().subscribe({
         next: (problems) => {
           this.problems = problems;
