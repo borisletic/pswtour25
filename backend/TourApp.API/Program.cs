@@ -14,7 +14,7 @@ using TourApp.Domain.Repositories;
 using TourApp.Infrastructure.Migrations;
 using TourApp.Infrastructure.Persistence.Context;
 using TourApp.Infrastructure.Persistence.Repositories;
-using TouristTours.Infrastructure.Services;
+using TourApp.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

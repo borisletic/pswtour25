@@ -279,6 +279,9 @@ export class CreateTourComponent implements OnInit, AfterViewInit {
 
     this.loading = true;
     const formValue = this.tourForm.value;
+
+    const scheduledDate = new Date(formValue.scheduledDate);
+    scheduledDate.setHours(12, 0, 0, 0); // Set to noon local time
     
     // Validate keypoints before proceeding
     if (formValue.keyPoints.length > 0 && !this.validateKeyPoints(formValue.keyPoints)) {
@@ -294,7 +297,7 @@ export class CreateTourComponent implements OnInit, AfterViewInit {
         difficulty: formValue.difficulty,
         category: formValue.category,
         price: formValue.price,
-        scheduledDate: formValue.scheduledDate
+        scheduledDate: scheduledDate
       }));
       
       this.currentTourId = response.tourId;

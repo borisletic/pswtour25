@@ -3,7 +3,7 @@ using Hangfire.Dashboard;
 
 
 
-namespace TouristTours.Infrastructure.Services
+namespace TourApp.Infrastructure.Services
 {
     public class HangfireAuthorizationFilter : IDashboardAuthorizationFilter
     {
