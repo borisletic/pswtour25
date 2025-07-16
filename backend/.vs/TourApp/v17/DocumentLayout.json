@@ -166,8 +166,7 @@
               "RelativeToolTip": "TourApp.Application\\BackgroundJobs\\MonthlyGuideRewardJob.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T17:10:09.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T17:10:09.021Z"
             },
             {
               "$type": "Document",
@@ -179,8 +178,7 @@
               "RelativeToolTip": "TourApp.Infrastructure\\Services\\GuideRewardService.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwBsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T17:06:30.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T17:06:30.33Z"
             },
             {
               "$type": "Document",
@@ -192,8 +190,7 @@
               "RelativeToolTip": "TourApp.Domain\\Repositories\\IGuideRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T17:02:02.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T17:02:02.601Z"
             },
             {
               "$type": "Document",
@@ -205,8 +202,7 @@
               "RelativeToolTip": "TourApp.Infrastructure\\Persistence\\Repositories\\TouristRepository.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAswCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T02:47:21.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T02:47:21.69Z"
             },
             {
               "$type": "Document",
@@ -242,8 +238,7 @@
               "RelativeToolTip": "TourApp.API\\Controllers\\TourController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T01:09:08.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T01:09:08.195Z"
             },
             {
               "$type": "Document",
@@ -255,8 +250,7 @@
               "RelativeToolTip": "TourApp.API\\Program.cs",
               "ViewState": "AgIAAMgAAAAAAAAAAAAqwOYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T00:08:15.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T00:08:15.808Z"
             },
             {
               "$type": "Document",

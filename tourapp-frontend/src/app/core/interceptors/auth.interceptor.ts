@@ -7,10 +7,10 @@ import { AuthService } from '../services/auth.service';
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   console.log('Auth interceptor called for:', req.url);
   
-  const authService = inject(AuthService);
+  
   const router = inject(Router);
   
-  const token = authService.getToken();
+  const token = localStorage.getItem('auth_token');
   console.log('Token found:', !!token);
   
   if (token) {
@@ -26,7 +26,8 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((error: HttpErrorResponse) => {
       console.error('HTTP Error:', error);
       if (error.status === 401) {
-        authService.logout();
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user_data');
         router.navigate(['/auth/login']);
       }
       return throwError(() => error);
