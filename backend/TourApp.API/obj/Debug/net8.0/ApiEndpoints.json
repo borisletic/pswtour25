@@ -210,13 +210,39 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TourApp.API.Controllers.TestController",
+    "ContainingType": "TestController",
     "Method": "TestMonthlyReports",
     "RelativePath": "api/Test/send-monthly-reports",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TestController",
+    "Method": "TestMonthlyReportsCurrentMonth",
+    "RelativePath": "api/Test/send-monthly-reports-current",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TestController",
+    "Method": "SendTestMonthlyReport",
+    "RelativePath": "api/Test/send-test-monthly-report",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TestReportRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
