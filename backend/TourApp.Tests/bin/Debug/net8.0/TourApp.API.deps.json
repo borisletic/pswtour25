@@ -11,6 +11,7 @@
           "FluentValidation.AspNetCore": "11.3.0",
           "Hangfire.AspNetCore": "1.8.20",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.14",
+          "Microsoft.EntityFrameworkCore.Design": "7.0.14",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.14",
           "Swashbuckle.AspNetCore": "6.5.0",
           "TourApp.Infrastructure": "1.0.0"
@@ -1764,6 +1765,7 @@
           "FluentValidation.DependencyInjectionExtensions": "11.8.0",
           "Hangfire.AspNetCore": "1.8.20",
           "MediatR": "12.1.1",
+          "Microsoft.EntityFrameworkCore": "7.0.14",
           "Microsoft.IdentityModel.JsonWebTokens": "7.0.3",
           "System.IdentityModel.Tokens.Jwt": "7.0.3",
           "TourApp.Domain": "1.0.0"

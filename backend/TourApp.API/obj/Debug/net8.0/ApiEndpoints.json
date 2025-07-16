@@ -362,6 +362,62 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TourApp.API.Controllers.TourController",
+    "Method": "IsRewardedGuide",
+    "RelativePath": "api/Tour/guides/{guideId}/is-rewarded",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "guideId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TourApp.API.Controllers.TourController",
+    "Method": "GetGuidesRewardStatus",
+    "RelativePath": "api/Tour/guides/reward-status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TourApp.API.Controllers.TourController",
+    "Method": "GetToursByRewardedGuides",
+    "RelativePath": "api/Tour/rewarded-guides",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TourApp.API.Controllers.TourController",
+    "Method": "TestRewardJob",
+    "RelativePath": "api/Tour/test-reward-job",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TourApp.API.Controllers.TouristController",
     "Method": "UpdateInterests",
     "RelativePath": "api/Tourist/interests",

@@ -12,7 +12,7 @@ namespace TourApp.Domain.Entities
 
         public IReadOnlyCollection<Tour> Tours => _tours.AsReadOnly();
         public int CancelledToursCount { get; private set; }
-        public int RewardPoints { get; private set; }
+        public int RewardPoints { get; set; }
         public bool IsRewarded => RewardPoints >= 5;
 
         protected Guide() { }

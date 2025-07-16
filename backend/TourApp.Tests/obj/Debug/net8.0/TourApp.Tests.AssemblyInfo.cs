@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TourApp.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+862da7ea415348ba642018697ef13015c52385b4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+210fd6973727eed3077f9aec12471f323ca2df0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("TourApp.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TourApp.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

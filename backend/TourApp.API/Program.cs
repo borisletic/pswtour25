@@ -8,9 +8,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using TourApp.API.Extensions;
+using TourApp.Application.BackgroundJobs;
 using TourApp.Application.Handlers;
 using TourApp.Application.Services;
 using TourApp.Domain.Repositories;
+using TourApp.Domain.Services;
 using TourApp.Infrastructure.Migrations;
 using TourApp.Infrastructure.Persistence.Context;
 using TourApp.Infrastructure.Persistence.Repositories;
@@ -81,6 +83,9 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<ITourRecommendationService, TourRecommendationService>();
+builder.Services.AddScoped<IGuideRepository, GuideRepository>();
+builder.Services.AddScoped<IGuideRewardService, GuideRewardService>();
+builder.Services.AddScoped<MonthlyGuideRewardJob>();
 
 // Configure Hangfire for background jobs
 builder.Services.AddHangfire(configuration => configuration
@@ -219,6 +224,11 @@ using (var scope = app.Services.CreateScope())
         "send-monthly-reports",
         () => notificationService.SendMonthlyReportsAsync(),
         Cron.Monthly(1));
+
+    RecurringJob.AddOrUpdate<MonthlyGuideRewardJob>(
+    "monthly-guide-reward",
+    job => job.ExecuteAsync(),
+    Cron.Monthly(1, 0, 0)); // 1. u mesecu u 00:00
 }
 
 // Apply migrations

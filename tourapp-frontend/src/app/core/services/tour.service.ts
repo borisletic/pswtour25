@@ -96,7 +96,26 @@ export class TourService {
   }
 
   rateTour(tourId: string, score: number, comment: string): Observable<any> {
-  const headers = this.getAuthHeaders();
-  return this.http.post(`${this.apiUrl}/${tourId}/rate`, { score, comment }, { headers });
-}
+    const headers = this.getAuthHeaders();
+    return this.http.post(`${this.apiUrl}/${tourId}/rate`, { score, comment }, { headers });
+  }
+
+  getToursByRewardedGuides(): Observable<Tour[]> {
+    return this.http.get<Tour[]>(`${this.apiUrl}/rewarded-guides`);
+  }
+
+  isRewardedGuide(guideId: string): Observable<{isRewarded: boolean}> {
+    return this.http.get<{isRewarded: boolean}>(`${this.apiUrl}/guides/${guideId}/is-rewarded`);
+  }
+
+  getGuidesRewardStatus(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/guides/reward-status`);
+  }
+
+  /**
+   * Test metoda za pokretanje mesečnog job-a ručno
+   */
+  testRewardJob(): Observable<{message: string}> {
+    return this.http.post<{message: string}>(`${this.apiUrl}/test-reward-job`, {});
+  }
 }

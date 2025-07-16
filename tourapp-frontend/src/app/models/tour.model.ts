@@ -39,6 +39,7 @@ export interface GuideInfo {
   firstName: string;
   lastName: string;
   isRewarded: boolean;
+  rewardPoints?: number;
 }
 
 export interface Tour {

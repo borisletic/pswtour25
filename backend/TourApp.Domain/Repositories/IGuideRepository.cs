@@ -13,5 +13,8 @@ namespace TourApp.Domain.Repositories
         Task<IEnumerable<Guide>> GetRewardedGuidesAsync();
         Task<IEnumerable<Guide>> GetMaliciousGuidesAsync();
         Task<Guide> GetTopGuideForMonthAsync(int month, int year);
+        Task<Guide> GetByIdAsync(Guid id);
+        Task<Guide> GetTopGuideBySalesAsync(DateTime monthStart, DateTime monthEnd);
+        Task<Dictionary<Guid, int>> GetGuideSalesCountAsync(DateTime monthStart, DateTime monthEnd);
     }
 }
