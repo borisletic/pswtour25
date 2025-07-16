@@ -53,6 +53,7 @@ namespace TourApp.Application.Handlers
                         Status = tour.Status.ToString(),
                         AverageRating = tour.GetAverageRating(),
                         RatingsCount = tour.Ratings.Count,
+                        HasRated = hasRated, 
                         KeyPoints = tour.KeyPoints.Select(kp => new KeyPointDto
                         {
                             Id = kp.Id,
@@ -72,8 +73,6 @@ namespace TourApp.Application.Handlers
                         }
                     };
 
-                    // Add custom property to indicate if tourist has rated this tour
-                    // You might want to extend TourDto with HasRated property
                     tourDtos.Add(tourDto);
                 }
 

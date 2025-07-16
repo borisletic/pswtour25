@@ -55,6 +55,7 @@ export interface Tour {
   ratingsCount: number;
   keyPoints: KeyPoint[];
   guide: GuideInfo;
+  hasRated?: boolean;
 }
 
 export interface TourFilter {

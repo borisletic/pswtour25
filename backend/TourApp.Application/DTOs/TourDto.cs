@@ -21,6 +21,7 @@ namespace TourApp.Application.DTOs
         public int RatingsCount { get; set; }
         public List<KeyPointDto> KeyPoints { get; set; }
         public GuideInfoDto Guide { get; set; }
+        public bool HasRated { get; set; } 
     }
 
     public class KeyPointDto

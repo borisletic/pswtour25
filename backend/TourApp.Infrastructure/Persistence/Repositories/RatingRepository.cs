@@ -27,5 +27,7 @@ namespace TourApp.Infrastructure.Persistence.Repositories
             return await _context.Ratings
                 .AnyAsync(r => r.TouristId == touristId && r.TourId == tourId);
         }
+
+        
     }
 }

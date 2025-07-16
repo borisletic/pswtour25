@@ -11,5 +11,6 @@ namespace TourApp.Domain.Repositories
     {
         Task<Rating> GetByTouristAndTourAsync(Guid touristId, Guid tourId);
         Task<bool> ExistsAsync(Guid touristId, Guid tourId);
+        
     }
 }

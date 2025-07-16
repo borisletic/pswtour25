@@ -97,6 +97,6 @@ export class TourService {
 
   rateTour(tourId: string, score: number, comment: string): Observable<any> {
   const headers = this.getAuthHeaders();
-  return this.http.post(`${this.apiUrl}/${tourId}/rating`, { score, comment }, { headers });
+  return this.http.post(`${this.apiUrl}/${tourId}/rate`, { score, comment }, { headers });
 }
 }

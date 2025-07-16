@@ -71,26 +71,27 @@ export class PurchaseHistoryComponent implements OnInit {
   }
 
   rateTour(tour: any): void {
-    const dialogRef = this.dialog.open(RateTourDialogComponent, {
-      data: { tour },
-      width: '500px'
-    });
+  const dialogRef = this.dialog.open(RateTourDialogComponent, {
+    data: { tour },
+    width: '500px'
+  });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.tourService.rateTour(tour.id, result.score, result.comment).subscribe({
-          next: () => {
-            this.snackBar.open('Tour rated successfully', 'Close', { duration: 3000 });
-            this.loadPurchaseHistory();
-          },
-          error: (error) => {
-            const message = error.error?.errors?.[0] || 'Failed to rate tour';
-            this.snackBar.open(message, 'Close', { duration: 3000 });
-          }
-        });
-      }
-    });
-  }
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.tourService.rateTour(tour.id, result.score, result.comment).subscribe({
+        next: () => {
+          this.snackBar.open('Tour rated successfully', 'Close', { duration: 3000 });
+          // ✅ Force reload the purchase history
+          this.loadPurchaseHistory();
+        },
+        error: (error) => {
+          const message = error.error?.errors?.[0] || 'Failed to rate tour';
+          this.snackBar.open(message, 'Close', { duration: 3000 });
+        }
+      });
+    }
+  });
+}
 
   reportProblem(tour: any): void {
     const dialogRef = this.dialog.open(ReportProblemDialogComponent, {
