@@ -328,6 +328,18 @@
         }
       }
     },
+    "/api/Test/send-monthly-reports": {
+      "post": {
+        "tags": [
+          "Test"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Tour": {
       "get": {
         "tags": [

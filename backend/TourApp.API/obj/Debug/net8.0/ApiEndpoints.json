@@ -210,6 +210,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TourApp.API.Controllers.TestController",
+    "Method": "TestMonthlyReports",
+    "RelativePath": "api/Test/send-monthly-reports",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TourApp.API.Controllers.TourController",
     "Method": "GetTours",
     "RelativePath": "api/Tour",
